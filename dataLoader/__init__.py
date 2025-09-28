@@ -1,7 +1,8 @@
-from dataLoader.JsonLoader import CauseEffectLoader
+from dataLoader.JsonLoader import CauseEffectLoader, CausalGraphLoader
 
 
 
 __all__ = [
-    "CauseEffectLoader"
+    "CauseEffectLoader",
+    "CausalGraphLoader"
 ]

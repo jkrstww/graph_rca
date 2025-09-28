@@ -3,7 +3,6 @@
     <div class="header">
       <h1>因果分析系统</h1>
       <p>输入问题描述，系统将帮助您分析可能的原因</p>
-      <button @click="startAction">点击开始分析！</button>
     </div>
 
     <div class="content">
@@ -11,7 +10,13 @@
         <div class="section-title">
           <i>📊</i> 分析路径
         </div>
-        <div class="text-display">{{ reasonPath || '分析路径将在此显示...' }}</div>
+        <div class="text-display">
+          <div
+            v-for="path in reasonPath"
+            :key="reason_path">
+            {{path}}
+          </div>
+        </div>
       </div>
 
       <div class="section">
@@ -66,12 +71,8 @@
           </button>
         </div>
 
-        <div class="status-message" :class="messageType">{{ message }}</div>
+        <div class="status-message" :class="messageType">{{ final_summary }}</div>
       </div>
-    </div>
-
-    <div class="footer">
-      因果分析系统 &copy; 2023 - 基于Vue.js开发
     </div>
   </div>
 </template>
@@ -84,7 +85,7 @@ export default {
   data() {
     return {
       userInput: '',
-      reasonPath: '',
+      reasonPath: [],
       choices: [],
       selectedChoices: [],
       isFinal: false,
@@ -93,7 +94,8 @@ export default {
       message: '',
       messageType: '',
       agent_id: '',
-      user_id: ''
+      user_id: '',
+      final_summary: ''
     };
   },
   methods: {
@@ -130,11 +132,11 @@ export default {
     async startAction() {
       try {
         // 实际应用中替换为真实的API调用
-        const response = await axios.get('http://localhost:5000/start');
+        const response = await axios.get('http://localhost:5000/test');
         // const response = await this.mockGenerateGraphAPI(this.userInput);
-        this.agent_id = response.data.agent_id
-        this.user_id = response.data.user_id
-        this.showMessage('创建用户id成功', 'success');
+        // this.agent_id = response.data.agent_id
+        // this.user_id = response.data.user_id
+        // this.showMessage('创建用户id成功', 'success');
       } catch (error) {
         console.error('尝试启动时出错:', error);
         this.showMessage('尝试创建用户id出错，请稍后重试', 'error');
@@ -183,13 +185,21 @@ export default {
         // 实际应用中替换为真实的API调用
         const response = await axios.post('http://localhost:5000/action/generate_graph', { context: this.userInput });
         // const response = await this.mockGenerateGraphAPI(this.userInput);
-
+        const data = response.data
         // 更新数据
-        this.reasonPath = response.reason_path;
-        this.choices = response.choices;
-        this.selectedChoices = [];
-        this.isFinal = false;
+        if (data.is_final == false) {
+          this.reasonPath = data.reason_paths;
+          this.choices = data.choices;
+          this.selectedChoices = [];
+          this.isFinal = false;
+        } else {
+          this.reasonPath = data.reason_paths;
+          this.userInput = data.analyse_summary;
+          this.final_summary = data.final_summary
+          this.isFinal = true;
+        }
 
+        this.userInput = ''
         this.showMessage('分析路径生成成功！请从可能原因中选择相关项目。', 'success');
       } catch (error) {
         console.error('生成分析图时出错:', error);
@@ -223,18 +233,23 @@ export default {
         // 实际应用中替换为真实的API调用
         const response = await axios.post('http://localhost:5000/action/root_cause_analyse', { choices: this.selectedChoices });
         // const response = await this.mockRootCauseAnalyseAPI(this.selectedChoices);
+        const data = response.data
 
-        if (response.is_final) {
+        if (data.is_final) {
           // 最终结果，更新输入框
-          this.userInput = response.analyse_summary;
+          this.userInput = data.analyse_summary;
+          this.reasonPath = data.reason_paths;
           this.isFinal = true;
           this.showMessage('分析完成！已生成最终分析摘要。', 'success');
+          this.final_summary = data.final_summary
+          this.isAnalyzing = true;
         } else {
           // 非最终结果，更新路径和选项
-          this.reasonPath = response.reason_path;
-          this.choices = response.choices;
+          this.reasonPath = data.reason_paths;
+          this.choices = data.choices;
           this.selectedChoices = [];
           this.showMessage('分析进行中，请继续选择相关选项。', 'success');
+          this.isAnalyzing = true;
         }
       } catch (error) {
         console.error('分析过程中出错:', error);

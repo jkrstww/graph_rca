@@ -3,7 +3,8 @@ from typing import Any, Optional
 import os
 from langchain_chroma import Chroma
 from embedding import _OllamaEmbeddings
-from dataLoader import CauseEffectLoader
+from dataLoader import CauseEffectLoader, CausalGraphLoader
+import inspect
 
 
 class ChromaVectorBase(BaseVectorBase):
@@ -13,7 +14,7 @@ class ChromaVectorBase(BaseVectorBase):
         **kwargs: Any,
     ):
         super(ChromaVectorBase, self).__init__(vectorbase_params)
-        self.db_root_path = './dbs/Chroma'
+        self.db_root_path = os.path.normpath(os.path.join(inspect.getfile(self.__class__), '../dbs/Chroma'))
 
 
     def create(self, vectorbase_name: str, embedding_model: str = 'bge-m3', embedding_method = 'ollama'):
@@ -53,9 +54,6 @@ class ChromaVectorBase(BaseVectorBase):
 
         try:
             embedding_function = self.get_embed_func(self.embedding_method, self.embedding_model)
-            print(
-                db_path
-            )
 
             self.vector_store = Chroma(
                 embedding_function=embedding_function,
@@ -68,6 +66,17 @@ class ChromaVectorBase(BaseVectorBase):
 
 
     def add_document(self, file_path, local_loader) -> None:
+        # 获取调用read_file的文件的路径
+        caller_frame = inspect.stack()[1]
+        caller_file = caller_frame.filename
+        caller_dir = os.path.dirname(os.path.abspath(caller_file))
+        
+        # 如果file_path是相对路径，基于调用者目录解析
+        if not os.path.isabs(file_path):
+            file_path = os.path.join(caller_dir, file_path)
+        
+        # 规范化路径
+        file_path = os.path.normpath(file_path)
         loader = self.data_loader(file_path, local_loader)
 
         datas = loader.load()
@@ -99,9 +108,21 @@ class ChromaVectorBase(BaseVectorBase):
 
 if __name__ == '__main__':
     chromadb = ChromaVectorBase()
-    chromadb.create('transformers')
-    chromadb.add_documents(r'D:\Project\Fault_Analyse\backend\output\transformer cause-effect', CauseEffectLoader)
+    chromadb.create('graph')
+    chromadb.add_document(r'../graph/graph.json', CausalGraphLoader)
 
     # chromadb.open('test')
     # data = chromadb.vector_store.get()
     # print(data)
+
+    # print('start testing!!!')
+
+    # db = ChromaVectorBase()
+    # db.open('transformers')
+    # vector_store = db.vector_store
+    # result = vector_store.similarity_search(
+    #     "变压器发热",
+    #     k=1,
+    # )
+
+    # print(result)

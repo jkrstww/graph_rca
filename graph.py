@@ -24,28 +24,30 @@ class FaultGraph:
             causes = item['cause']
 
             if effect not in self.graph:
-                node = FaultNode(effect)
-            else:
-                node = self.graph[effect]
+                self.graph[effect] = FaultNode(effect)
+
+            node = self.graph[effect]
 
             for cause in causes:
                 if cause not in self.graph:
-                    next = FaultNode(cause)
-                    node.next.append(next)
-                else:
-                    node.next.append(self.graph[cause])
+                    self.graph[cause] = FaultNode(cause)
 
-    def get_node(self, node: str):
+                node.next.append(self.graph[cause])
+
+    def get_node(self, node: str) -> FaultNode:
         if node in self.graph:
-            return self.graph.get(node)
+            if node in self.graph:
+                return self.graph.get(node)
+            else:
+                return FaultNode('')
         else:
             return FaultNode(node)
 
 class FaultAnalyseAgent():
-    graph = FaultGraph()
-    fault_nodes = List[FaultNode]
-    reason_paths = List[ReasonPath]
     def __init__(self, user_id: str):
+        self.fault_nodes: List[FaultNode] = []
+        self.reason_paths: List[ReasonPath] = []
+        self.graph = FaultGraph()
         self.id = 'agent_' + user_id
         self.created_time = datetime.now()
         self.event_identify_agent = EventIdentifyAgent()
@@ -53,7 +55,7 @@ class FaultAnalyseAgent():
         self.generate_choice_agent = GenerateChoiceAgent()
         self.decide_next_agent = DecideNextAgent()
         self.final_summary_agent = FinalAnalyseAgent()
-        self.graph.read_graph('./graph/graph.json')
+        # self.graph.read_graph('./graph/graph.json')
 
     # def read_gragh(self, file_path: str):
     #     with open(file_path, 'r', encoding=get_encoding(file_path)) as f:
@@ -65,12 +67,15 @@ class FaultAnalyseAgent():
     def generate_choice(self, reason_path: ReasonPath, candidate_nodes: List[FaultNode]) -> List[str]:
         try:
             choices = self.generate_choice_agent.output(reason_path=reason_path, candidate_nodes=candidate_nodes)
+
             return choices
         except Exception as e:
             raise e
 
     def perform_action(self, action_name, parameters):
         if action_name == 'generate_graph':
+            # 每次生成图的时候都需要重置推理路径
+            self.clear_path()
             print("start generate_graph")
             try:
                 context = parameters['context']
@@ -78,17 +83,46 @@ class FaultAnalyseAgent():
                 fault_events = self.event_identify_agent.output(context)
                 print('  -identify_event:' + str(fault_events))
                 fault_nodes_str = self.init_fault_node_agent.output(fault_events)
-                print('  -fault_nodes:' + fault_nodes_str)
+                print('  -fault_nodes:' + str(fault_nodes_str))
 
                 # 初始化推理路径
                 for node_str in fault_nodes_str:
                     node = self.graph.get_node(node_str)
-                    self.fault_nodes.append(node)
-                    self.reason_paths.append(ReasonPath(node))
+                    
+                    if node not in self.fault_nodes:
+                        self.fault_nodes.append(node)
+                        reason_path = ReasonPath(node)
+                        # 根据初始节点尽可能往后面拓展，遇到分支或空节点终止
+                        reason_path.explore()
+                        self.reason_paths.append(reason_path)
+                
+                # 遍历path列表，找到一条没有结束的路径
+                path_num = len(self.reason_paths)
+                for i in range(path_num):
+                    reason_path = self.reason_paths[0]
 
+                    if reason_path.is_final:
+                        old_path = self.reason_paths.pop()
+                        self.reason_paths.append(old_path)
+                    else:
+                        choices = self.generate_choice(self.reason_paths[0], self.reason_paths[0].next())
+
+                        return {
+                            'is_final': False,
+                            'reason_paths': [str(path) for path in self.reason_paths],
+                            'choices': choices
+                        }
+                
+                # 全部遍历一遍，发现都结束了
+                final_summary = self.final_summary_agent.output(self.reason_paths)
+                print("  -summary:"+final_summary)
                 return {
-                    'reason_paths': str(self.reason_paths)
+                    "is_final": True,
+                    "reason_paths": [str(path) for path in self.reason_paths],
+                    "final_summary": final_summary
                 }
+
+
             except Exception as e:
                 return {
                     'error': e
@@ -101,15 +135,22 @@ class FaultAnalyseAgent():
         # 确定新加入的节点后将这条路径放在最后面
         # 路径走到尽头则不再进行处理
         elif action_name == 'root_cause_analyse':
+            print("start analyse")
             choices = parameters['choices']
+            print("  -choices:"+str(choices))
 
             reason_path: ReasonPath = self.reason_paths[0]
-            last_node: FaultNode = reason_path[-1]
+            last_node: FaultNode = reason_path.path[-1]
             candidate_nodes = last_node.next
+
+            print("    -current path:"+str(reason_path))
+            print("    -cadidate nodes:"+str(candidate_nodes))
 
             update_fault_node_str = self.decide_next_agent.output(reason_path=reason_path, candidate_nodes=candidate_nodes, choices=choices)
             update_fault_node = self.graph.get_node(update_fault_node_str)
             reason_path.add_node(update_fault_node)
+            print("    -new path:"+str(reason_path))
+            print()
 
             # 把当前路径放在最后
             old_path = self.reason_paths.pop()
@@ -118,40 +159,49 @@ class FaultAnalyseAgent():
             # 遍历path列表，找到一条没有结束的路径
             path_num = len(self.reason_paths)
             for i in range(path_num):
+                print(i)
                 reason_path = self.reason_paths[0]
 
                 if reason_path.is_final:
                     old_path = self.reason_paths.pop()
                     self.reason_paths.append(old_path)
                 else:
-                    choices: List[str] = []
-                    while reason_path.explore():
-                        last_node: FaultNode = reason_path[-1]
-                        candidate_nodes = last_node.next
-
-                        choices = self.generate_choice_agent.output(reason_path, candidate_nodes)
-                        break
+                    reason_path.explore()
 
                     if reason_path.is_final:
                         old_path = self.reason_paths.pop()
                         self.reason_paths.append(old_path)
                     else:
+                        last_node: FaultNode = reason_path.path[-1]
+                        candidate_nodes = last_node.next
+
+                        choices = self.generate_choice_agent.output(reason_path, candidate_nodes)
                         return {
                             "is_final": False,
-                            "reason_paths": str(self.reason_paths),
+                            "reason_paths": [str(path) for path in self.reason_paths],
                             "choices": choices
                         }
 
+            print('out')
             # 全部遍历一遍，发现都结束了
-            final_summary = self.final_summary_agent(self.reason_paths)
+            final_summary = self.final_summary_agent.output(self.reason_paths)
+            print("  -summary:"+final_summary)
             return {
                 "is_final": True,
+                "reason_paths": [str(path) for path in self.reason_paths],
                 "final_summary": final_summary
             }
 
+    def clear_path(self):
+        self.reason_paths = []
 
 
 
 if __name__ == '__main__':
-    agent = FaultAnalyseAgent('test')
-    print(agent.graph['graph'][0])
+    list: List[FaultNode] = []
+    node = FaultNode('test')
+    node2 = FaultNode('test2')
+    list.append(node)
+    list.append(node2)
+
+    print(list)

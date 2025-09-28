@@ -1,6 +1,6 @@
 from .base import BaseAgent
-from .EventIdentifyAgent import EventIdentifyAgent
 from .GenerateAgent import GenerateAgent
+from .EventIdentifyAgent import EventIdentifyAgent
 from .InitFaultNodeAgent import InitFaultNodeAgent
 from .GenerateChoiceAgent import GenerateChoiceAgent
 from .DecideNextAgent import DecideNextAgent

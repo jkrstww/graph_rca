@@ -13,6 +13,13 @@ app.permanent_session_lifetime = timedelta(hours=1)  # 会话有效期
 agent = FaultAnalyseAgent('0001')
 user_id = '0001'
 
+@app.route('/test', methods=['GET'])
+def test():
+    print('success')
+
+    return jsonify({
+        "status": "success"
+    })
 
 @app.route('/start')
 def start():
@@ -55,10 +62,13 @@ def perform_action(action_name):
     # 执行操作
     try:
         result = agent.perform_action(action_name, parameters)
-        return jsonify({
+        response = {
             # "agent_id": agent.id,
             # "user_id": user_id
-        }.update(result))
+        }
+        response.update(result)
+
+        return jsonify(response)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

@@ -10,7 +10,7 @@ class FinalAnalyseAgent(GenerateAgent):
         self.system_instruction = FINAL_ANALYSE
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM()
+        model = OllamaLLM(model_name='llama3.2')
         content = model.predict(self.system_instruction.format(reason_paths=input))
 
         return content

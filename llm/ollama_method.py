@@ -6,7 +6,7 @@ from llm import BaseLLM
 class OllamaLLM(BaseLLM):
     def __init__(
         self,
-        model_name: str = 'deepseek-r1',
+        model_name: str = 'deepseek-r1:70b',
         model_params: Optional[dict[str, Any]] = None,
         **kwargs: Any,
     ):

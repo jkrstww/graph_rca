@@ -11,7 +11,7 @@ class DecideNextAgent(GenerateAgent):
         self.system_instruction = NEXT_DECIDE
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM()
+        model = OllamaLLM(model_name='llama3.2')
         content = model.predict(input)
 
         return content

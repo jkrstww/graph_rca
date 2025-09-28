@@ -5,6 +5,8 @@ from langchain_core.documents import Document
 
 from utils.file_utils import get_encoding
 
+import json
+
 class CauseEffectLoader(BaseLoader):
     def __init__(self, file_path: str) -> None:
         self.file_path = file_path
