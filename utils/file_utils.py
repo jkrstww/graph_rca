@@ -1,6 +1,7 @@
 import chardet
 import re
 import os
+from typing import Optional
 
 def get_encoding(file_path):
     """
@@ -85,6 +86,169 @@ def extract_label_content(text: str, label: str) -> list:
 
     # 返回匹配结果列表
     return matches if matches else []
+
+def read_document_content(file_path: str) -> Optional[str]:
+    """
+    从txt、doc、docx、pdf文件中读取文本内容
+    
+    参数:
+        file_path: 文件路径
+        
+    返回:
+        str: 提取的文本内容，如果读取失败则返回None
+    """
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"文件不存在: {file_path}")
+    
+    file_ext = os.path.splitext(file_path)[1].lower()
+    
+    try:
+        if file_ext == '.txt':
+            return _read_txt(file_path)
+        elif file_ext == '.docx':
+            return _read_docx(file_path)
+        elif file_ext == '.doc':
+            return _read_doc(file_path)
+        elif file_ext == '.pdf':
+            return _read_pdf(file_path)
+        else:
+            raise ValueError(f"不支持的文件格式: {file_ext}")
+    except Exception as e:
+        print(f"读取文件时出错 {file_path}: {str(e)}")
+        return None
+
+def _read_txt(file_path: str) -> str:
+    """读取txt文件内容"""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
+    except UnicodeDecodeError:
+        # 如果utf-8失败，尝试其他编码
+        with open(file_path, 'r', encoding='gbk') as file:
+            return file.read()
+
+def _read_docx(file_path: str) -> str:
+    """读取docx文件内容"""
+    try:
+        from docx import Document
+        doc = Document(file_path)
+        text_content = []
+        for paragraph in doc.paragraphs:
+            text_content.append(paragraph.text)
+        
+        # 读取表格内容
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    text_content.append(cell.text)
+        
+        return '\n'.join(text_content)
+    except ImportError:
+        raise ImportError("请安装python-docx库: pip install python-docx")
+
+def _read_doc(file_path: str) -> str:
+    """读取doc文件内容"""
+    try:
+        # 方法1: 使用antiword（需要安装antiword工具）
+        import subprocess
+        try:
+            result = subprocess.run(['antiword', file_path], 
+                                  capture_output=True, text=True, timeout=30)
+            if result.returncode == 0:
+                return result.stdout
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+        
+        # 方法2: 使用python-docx2txt（备用方案）
+        try:
+            import docx2txt
+            return docx2txt.process(file_path)
+        except ImportError:
+            pass
+        
+        # 方法3: 使用win32com（仅Windows系统）
+        # try:
+        #     import win32com.client
+        #     word = win32com.client.Dispatch("Word.Application")
+        #     word.visible = False
+        #     doc = word.Documents.Open(file_path)
+        #     text = doc.Content.Text
+        #     doc.Close()
+        #     word.Quit()
+        #     return text
+        # except ImportError:
+        #     pass
+        
+        raise ImportError("无法读取doc文件，请安装以下任一工具:\n"
+                         "1. antiword (Linux/Mac): sudo apt-get install antiword\n"
+                         "2. python-docx2txt: pip install docx2txt\n"
+                         "3. pywin32 (Windows): pip install pywin32")
+                         
+    except Exception as e:
+        raise Exception(f"读取doc文件失败: {str(e)}")
+
+def _read_pdf(file_path: str) -> str:
+    """读取pdf文件内容"""
+    try:
+        # 方法1: 使用PyPDF2
+        try:
+            import PyPDF2
+            with open(file_path, 'rb') as file:
+                pdf_reader = PyPDF2.PdfReader(file)
+                text_content = []
+                for page in pdf_reader.pages:
+                    text_content.append(page.extract_text())
+                return '\n'.join(text_content)
+        except ImportError:
+            pass
+        
+        # 方法2: 使用pdfplumber（更准确）
+        try:
+            import pdfplumber
+            text_content = []
+            with pdfplumber.open(file_path) as pdf:
+                for page in pdf.pages:
+                    text = page.extract_text()
+                    if text:
+                        text_content.append(text)
+            return '\n'.join(text_content)
+        except ImportError:
+            pass
+        
+        # 方法3: 使用pdfminer
+        try:
+            from pdfminer.high_level import extract_text
+            return extract_text(file_path)
+        except ImportError:
+            pass
+        
+        raise ImportError("无法读取pdf文件，请安装以下任一库:\n"
+                         "1. PyPDF2: pip install PyPDF2\n"
+                         "2. pdfplumber: pip install pdfplumber\n"
+                         "3. pdfminer.six: pip install pdfminer.six")
+                         
+    except Exception as e:
+        raise Exception(f"读取pdf文件失败: {str(e)}")
+
+def clean_text(text: str) -> str:
+    """
+    清理文本内容，去除多余的空白字符
+    
+    参数:
+        text: 原始文本
+        
+    返回:
+        str: 清理后的文本
+    """
+    if not text:
+        return ""
+    
+    # 替换多个连续空白字符为单个空格
+    text = re.sub(r'\s+', ' ', text)
+    # 去除首尾空白
+    text = text.strip()
+    
+    return text
 
 if __name__ == '__main__':
     sample_text = """

@@ -80,6 +80,26 @@ def transform_cause_effect(data):
 # with open('./graph/graph.json', 'w', encoding='utf-8') as f:
 #     json.dump(output_data, f, ensure_ascii=False, indent=4)
 # f.close()
+from pydantic import BaseModel
+class ChatMessage(BaseModel):
+    datetime: str
+    content: str
+    role: str
 
-list: List[str] = ['a','b','c']
-a = list[0]
+class ChatHistory(BaseModel):
+    id: str
+    create_time: str
+    name: str
+    messages: List[ChatMessage]
+
+messages = ChatMessage(datetime='111',content='222',role='333')
+history = ChatHistory(
+    id='',
+    create_time='',
+    name='',
+    messages=[]
+)
+history.messages.append(messages)
+
+print(history.model_dump_json(indent=2, exclude_none=True))
+

@@ -1,0 +1,6 @@
+{
+    "embedding_model": "bge-m3",
+    "embedding_method": "ollama",
+    "vectorbase_type": "Chroma",
+    "vectorbase_name": "transformers_with_title"
+}

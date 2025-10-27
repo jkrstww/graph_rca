@@ -26,7 +26,7 @@ class BaseVectorBase(ABC):
 
     def data_loader(self, file_path, localLoader: BaseLoader):
         if not os.path.exists(file_path):
-            raise "文件不存在"
+            raise KeyError("文件不存在")
 
         loader = localLoader(
             file_path=file_path

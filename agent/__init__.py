@@ -5,6 +5,8 @@ from .InitFaultNodeAgent import InitFaultNodeAgent
 from .GenerateChoiceAgent import GenerateChoiceAgent
 from .DecideNextAgent import DecideNextAgent
 from .FinalAnalyseAgent import FinalAnalyseAgent
+from .ChatAgent import ChatAgent
+from .SearchReferenceAgent import SearchReferenceAgent
 from .prompt import *
 
 __all__ = [
@@ -15,5 +17,7 @@ __all__ = [
     "GenerateChoiceAgent",
     "DecideNextAgent",
     "FinalAnalyseAgent",
+    'SearchReferenceAgent',
+    "ChatAgent",
     "prompt",
 ]

@@ -3,9 +3,9 @@ from typing import Any, Optional
 import os
 from langchain_chroma import Chroma
 from embedding import _OllamaEmbeddings
-from dataLoader import CauseEffectLoader, CausalGraphLoader
+from dataLoader import CauseEffectLoader, CausalGraphLoader, CauseEffectWithTitleLoader
 import inspect
-
+from config import PROJECT_ROOT
 
 class ChromaVectorBase(BaseVectorBase):
     def __init__(
@@ -107,9 +107,9 @@ class ChromaVectorBase(BaseVectorBase):
             raise e
 
 if __name__ == '__main__':
-    chromadb = ChromaVectorBase()
-    chromadb.create('graph')
-    chromadb.add_document(r'../graph/graph.json', CausalGraphLoader)
+    # chromadb = ChromaVectorBase()
+    # chromadb.create('graph')
+    # chromadb.add_document(r'../graph/graph.json', CausalGraphLoader)
 
     # chromadb.open('test')
     # data = chromadb.vector_store.get()
@@ -124,5 +124,9 @@ if __name__ == '__main__':
     #     "变压器发热",
     #     k=1,
     # )
+
+    db = ChromaVectorBase()
+    db.create('transformers_with_title')
+    db.add_documents(PROJECT_ROOT + '/graph/transformer_docs', CauseEffectWithTitleLoader)
 
     # print(result)
