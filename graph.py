@@ -205,7 +205,7 @@ class FaultAnalyseAgent():
                     reason_path = self.reason_paths[0]
 
                     if reason_path.is_final:
-                        old_path = self.reason_paths.pop()
+                        old_path = self.reason_paths.pop(0)
                         self.reason_paths.append(old_path)
                     else:
                         choices = self.generate_choice(self.reason_paths[0], self.reason_paths[0].next())
