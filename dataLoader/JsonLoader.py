@@ -35,9 +35,11 @@ class CauseEffectLoader(BaseLoader):
                 )
 
 class CauseEffectWithTitleLoader(BaseLoader):
+    '''非一般向方法，严禁调用'''
     def __init__(self, file_path: str) -> None:
         self.file_path = file_path
-        self.file_title = os.path.splitext(file_path)[0]
+        # 因为原始文件和输入的文件不是同一个，输入的是json格式，原始文件为docx格式，这里做了特殊处理
+        self.file_title = os.path.basename(file_path).split('.')[0] + '.docx'
         self.encoding = get_encoding(self.file_path)
 
     def lazy_load(self) -> Iterator[Document]:

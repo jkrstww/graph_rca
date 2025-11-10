@@ -1,6 +1,6 @@
 from agent.GenerateAgent import GenerateAgent
 from agent.prompt import EVENT_IDENTIFY
-from llm import OllamaLLM
+from llm import OllamaLLM, QwenLLM
 from typing import List
 from utils.file_utils import extract_label_content
 
@@ -10,7 +10,8 @@ class EventIdentifyAgent(GenerateAgent):
         self.system_instruction = EVENT_IDENTIFY
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM(model_name='llama3.2')
+        # model = OllamaLLM(model_name='llama3.2')
+        model = QwenLLM(model_name='qwen-plus')
         content = model.predict(self.system_instruction.format(input=input))
 
         return content

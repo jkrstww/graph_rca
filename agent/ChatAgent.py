@@ -1,5 +1,6 @@
 from agent.base import BaseAgent
 from langchain_ollama import ChatOllama
+from langchain_community.chat_models.tongyi import ChatTongyi
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, BaseMessage
 from typing import List
 import json
@@ -9,10 +10,16 @@ from config import PROJECT_ROOT
 import uuid
 import datetime
 import os
+import aiofiles
 
 from history import ChatMessage, ChatHistory, UserHistory, History
 
 from utils.file_utils import read_document_content
+from utils.time_utils import getCurrentTime
+
+from config import QWEN_KEY
+os.environ["DASHSCOPE_API_KEY"] = QWEN_KEY
+
 
 class ChatAgent(BaseAgent):
     history_path = PROJECT_ROOT + '/history/chats'
@@ -31,7 +38,10 @@ class ChatAgent(BaseAgent):
         # 参考文献列表
         self.reference_list = []
         self.reference_list_latest = []
-        self.model = ChatOllama(model='llama3.2')
+        self.model = ChatTongyi(
+            model_name="qwen-plus",
+            streaming=True
+        )
         self.system_instruction = SystemMessage(
             content='''
                 你是故障诊断领域的专家，你需要根据用户输入以及参考文献一步一步地对故障根本原因进行推理，
@@ -41,20 +51,21 @@ class ChatAgent(BaseAgent):
         # 对话的id，这个是前端那边要求的，虽然不知道有什么用
         self.chat_id = str(uuid.uuid4())
 
-    async def chat(self, query:str, user_id: str=''):
+    def chat(self, query:str, user_id: str=''):
         initial_data = {
             "type": 'begin',
             "status": "starting!",
             "chat_id": self.chat_id
         }
         yield f"data: {json.dumps(initial_data)}\n\n"
+        print("begin")
     
         # 加入模型对话框
         self.messages.append(HumanMessage(content=query))
         # 加入历史对话
         # 如果没有就新建
         if len(self.history.messages) == 0:
-            self.history.create_time = self.getCurrentTime()
+            self.history.create_time = getCurrentTime()
             # 以query前10个词作为名字
             self.history.name = query[:10]
             self.history.id = str(uuid.uuid4())
@@ -62,13 +73,12 @@ class ChatAgent(BaseAgent):
             # 建立用户和历史对话记录的联系
             # 查看有没有这个用户的记录
             file_name = user_id + '.json'
-            user_list = os.listdr(PROJECT_ROOT + '/history/users')
+            file_path = PROJECT_ROOT + '/history/users/' + file_name
+            user_list = os.listdir(PROJECT_ROOT + '/history/users')
 
             if file_name not in user_list:
                 user_history = UserHistory(user_id=user_id, chat_history=[], analyse_history=[])
             else:
-                file_path = PROJECT_ROOT + '/history/users/' + file_name
-
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                 user_history = UserHistory.model_validate(data)
@@ -84,7 +94,7 @@ class ChatAgent(BaseAgent):
                 f.write(user_history.model_dump_json(indent=2, exclude_none=True))
             f.close()
 
-        self.history.messages.append(ChatMessage(self.getCurrentTime(), query, 'human'))
+        self.history.messages.append(ChatMessage(datetime=getCurrentTime(), content=query, role='human'))
 
         # 查找参考文献并将其转化为提示词
         refs = self.generate_reference(query)
@@ -102,18 +112,18 @@ class ChatAgent(BaseAgent):
 
         # 流式生成回答
         full_text = ''
-        async for chunk in self.model.astream(self.messages):
+        for chunk in self.model.stream(self.messages):
             full_text += str(chunk.content)
             # yield json.dumps(chunk.content, ensure_ascii=False)
             chunk_data = {
                 "type": "chunk",
                 "content": chunk.content,
             }
-            yield f"data: {json.dumps(chunk_data)}\n\n"
+            yield f"data: {json.dumps(chunk_data, ensure_ascii=False)}\n\n"
         
         # 回答完成后加入到messages和历史记录中
         self.messages.append(AIMessage(content=full_text))
-        self.history.messages.append(ChatMessage(self.getCurrentTime(), full_text, 'ai'))
+        self.history.messages.append(ChatMessage(datetime=getCurrentTime(), content=full_text, role='ai'))
         # 写入历史记录
         self.writeHistory()
 
@@ -125,7 +135,7 @@ class ChatAgent(BaseAgent):
 
     # 在完成每一轮对话后都会刷新历史记录状态,id唯一确认历史记录
     def writeHistory(self):
-        file_name = self.history['id'] + '.json'
+        file_name = self.history.id + '.json'
 
         file_path = PROJECT_ROOT + '/history/chats/' + file_name
 
@@ -154,7 +164,7 @@ class ChatAgent(BaseAgent):
             else:
                 self.messages.append(AIMessage(content))
     
-    def getHistoryList(self, user_id: str) -> List[str]:
+    def getHistoryList(self, user_id: str) -> List[dict[str, str]]:
         file_name = user_id + '.json'
         file_path = PROJECT_ROOT + '/history/users/' + file_name
 
@@ -194,14 +204,19 @@ class ChatAgent(BaseAgent):
 
     def searchDB(self, prompt:str) -> List[Document]:
         db = ChromaVectorBase()
-        db.open('transformers')
+        db.open('transformers_with_title_qwen')
         vector_store = db.vector_store
 
-        retriever = vector_store.as_retriever(
-            search_type="mmr", search_kwargs={"k": 5, "fetch_k": 10}
-        )
+        # retriever = vector_store.as_retriever(
+        #     search_type="mmr", search_kwargs={"k": 5, "fetch_k": 10}
+        # )
 
-        result = retriever.invoke(prompt)
+        # result = retriever.invoke(prompt)
+
+        result = vector_store.similarity_search(
+            prompt,
+            k=3,
+        )
 
         return result
     
@@ -249,7 +264,3 @@ class ChatAgent(BaseAgent):
     def clearReference(self):
         while len(self.reference_list) != 0:
             self.reference_list.pop(0)
-
-    def getCurrentTime(self) -> str:
-        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        return current_time

@@ -2,7 +2,7 @@ from agent.GenerateAgent import GenerateAgent
 from typing import List
 import os
 import ast
-from llm.ollama_method import OllamaLLM
+from llm import OllamaLLM, QwenLLM
 from agent.prompt import SEARCH_REFERENCE
 from config import PROJECT_ROOT
 
@@ -14,7 +14,8 @@ class SearchReferenceAgent(GenerateAgent):
         
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM(model_name='llama3.2')
+        # model = OllamaLLM(model_name='llama3.2')
+        model = QwenLLM(model_name='qwen-plus')
         reference_list = str(self.references)
         content = model.predict(self.system_instruction.format(user_query=input, reference_list=reference_list))
 

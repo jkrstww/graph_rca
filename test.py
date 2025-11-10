@@ -80,26 +80,72 @@ def transform_cause_effect(data):
 # with open('./graph/graph.json', 'w', encoding='utf-8') as f:
 #     json.dump(output_data, f, ensure_ascii=False, indent=4)
 # f.close()
-from pydantic import BaseModel
-class ChatMessage(BaseModel):
-    datetime: str
-    content: str
-    role: str
 
-class ChatHistory(BaseModel):
-    id: str
-    create_time: str
-    name: str
-    messages: List[ChatMessage]
+# from pydantic import BaseModel
+# class ChatMessage(BaseModel):
+#     datetime: str
+#     content: str
+#     role: str
 
-messages = ChatMessage(datetime='111',content='222',role='333')
-history = ChatHistory(
-    id='',
-    create_time='',
-    name='',
-    messages=[]
-)
-history.messages.append(messages)
+# class ChatHistory(BaseModel):
+#     id: str
+#     create_time: str
+#     name: str
+#     messages: List[ChatMessage]
 
-print(history.model_dump_json(indent=2, exclude_none=True))
+# messages = ChatMessage(datetime='111',content='222',role='333')
+# history = ChatHistory(
+#     id='',
+#     create_time='',
+#     name='',
+#     messages=[]
+# )
+# history.messages.append(messages)
 
+# print(history.model_dump_json(indent=2, exclude_none=True))
+
+def qwen_api():
+    from config import QWEN_KEY
+    import os
+    from openai import OpenAI
+
+    client = OpenAI(
+        api_key=QWEN_KEY,  # 如果您没有配置环境变量，请在此处用您的API Key进行替换
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"  # 百炼服务的base_url
+    )
+
+    completion = client.embeddings.create(
+        model="text-embedding-v4",
+        input='衣服的质量杠杠的，很漂亮，不枉我等了这么久啊，喜欢，以后还来这里买',
+        dimensions=1024, # 指定向量维度（仅 text-embedding-v3及 text-embedding-v4支持该参数）
+        encoding_format="float"
+    )
+
+    print(completion.model_dump_json())
+
+
+def format_jsonl_file(input_file, output_file, indent=2):
+    """
+    格式化JSONL文件，增加可读性
+    
+    Args:
+        input_file: 输入文件路径
+        output_file: 输出文件路径
+        indent: 缩进空格数
+    """
+    with open(input_file, 'r', encoding='utf-8') as f_in:
+        with open(output_file, 'w', encoding='utf-8') as f_out:
+            for line_num, line in enumerate(f_in, 1):
+                line = line.strip()
+                if line:  # 跳过空行
+                    try:
+                        # 解析JSON
+                        data = json.loads(line)
+                        # 格式化输出
+                        formatted_json = json.dumps(data, indent=indent, ensure_ascii=False)
+                        f_out.write(formatted_json + '\n\n')  # 添加空行分隔
+                    except json.JSONDecodeError as e:
+                        print(f"第{line_num}行JSON解析错误: {e}")
+
+# 使用示例
+format_jsonl_file('./pairwise_causality.jsonl', 'pairwise_causality.json', indent=2)

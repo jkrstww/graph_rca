@@ -1,0 +1,1279 @@
+nohup: ignoring input
+ * Serving Flask app 'api'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5007
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 456-251-975
+127.0.0.1 - - [31/Oct/2025 17:58:26] "POST /start HTTP/1.1" 200 -
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/api.py', reloading
+start
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 456-251-975
+127.0.0.1 - - [31/Oct/2025 18:05:51] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2025 18:05:55] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2025 18:05:57] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2025 18:05:58] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2025 18:15:52] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:15:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:16:26] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:16:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:08] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:28] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:28] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [31/Oct/2025 18:18:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [01/Nov/2025 02:14:53] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [01/Nov/2025 02:14:53] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 03:50:36] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [01/Nov/2025 03:50:36] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 11:43:18] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [01/Nov/2025 11:43:18] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:17:29] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [01/Nov/2025 14:17:29] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:45:30] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [01/Nov/2025 14:45:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [01/Nov/2025 14:50:55] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 14:54:00] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 14:54:26] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:55:01] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:56:55] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 14:58:15] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:58:20] "[31m[1mGET /action/new_chat HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 14:58:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [01/Nov/2025 14:58:43] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 14:59:53] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:07:32] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:07:44] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 415 -
+127.0.0.1 - - [01/Nov/2025 15:09:37] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:09:48] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 415 -
+127.0.0.1 - - [01/Nov/2025 15:11:59] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:12:02] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 415 -
+127.0.0.1 - - [01/Nov/2025 15:13:01] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:13:01] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:13:01] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:19:10] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:19:10] "[35m[1mPOST /action/read_chat_history HTTP/1.1[0m" 500 -
+127.0.0.1 - - [01/Nov/2025 15:19:14] "[31m[1mGET /action/read_chat_history HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 15:19:37] "[35m[1mPOST /action/read_chat_history HTTP/1.1[0m" 500 -
+127.0.0.1 - - [01/Nov/2025 15:56:08] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 15:56:08] "[35m[1mPOST /action/read_chat_history HTTP/1.1[0m" 500 -
+127.0.0.1 - - [01/Nov/2025 16:03:09] "[31m[1mPOST /action/chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 16:05:18] "[31m[1mPOST /action/chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 16:05:27] "[31m[1mPOST /action/chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 16:07:02] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:07:10] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:07:40] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:07:52] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:17:24] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:17:42] "[31m[1mPOST /action/get_chat_history HTTP/1.1[0m" 415 -
+127.0.0.1 - - [01/Nov/2025 16:17:51] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:18:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:18:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:19:09] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:20:01] "[31m[1mPOST /end HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 16:20:11] "[31m[1mPOST /end HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 16:20:35] "[31m[1mPOST /end HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 16:20:40] "[31m[1mPOST /end HTTP/1.1[0m" 405 -
+127.0.0.1 - - [01/Nov/2025 16:20:51] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:21:22] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:21:26] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:21:32] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:21:35] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:22:30] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:22:55] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:23:23] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:25:41] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 16:25:49] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:25:52] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:25:54] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:26:18] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:26:28] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:26:32] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:26:36] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [01/Nov/2025 16:37:13] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:37:13] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:37:13] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:37:13] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:38:46] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:38:46] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:39:35] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:39:35] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 16:39:35] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [01/Nov/2025 19:15:57] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [01/Nov/2025 19:15:57] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 11:46:37] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [02/Nov/2025 11:46:37] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 18:29:45] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:29:45] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:29:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:29:45] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:33:06] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:33:07] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:35:48] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:35:57] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:36:20] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:36:20] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:36:21] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:05] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:05] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:05] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:13] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:13] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:24] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:24] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:36] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:37] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:46:37] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:50:59] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:50:59] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:53:49] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:53:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:54:05] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:54:22] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:54:38] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:54:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:56:28] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:56:28] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 18:56:28] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 19:02:01] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 19:02:01] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 19:03:25] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 19:03:25] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 19:03:26] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2025 22:42:06] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03')
+127.0.0.1 - - [02/Nov/2025 22:42:06] "[31m[1m\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03\x1dÛ>Þ[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 22:42:10] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Nov/2025 22:44:41] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [02/Nov/2025 22:44:41] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 22:44:51] code 400, message Bad request version ('À\x13À')
+127.0.0.1 - - [02/Nov/2025 22:44:51] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03I\x06²ù¼\x99iÀYûøºe-\x83Ud]\x0e\x8d·b8´gÆÝ9dZ8f gÁ\x81i³öòË°©\x19NÖ½\x95g|püé<Z¡\x90T·é¥8'O;\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+127.0.0.1 - - [02/Nov/2025 22:45:01] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Nov/2025 22:45:04] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [02/Nov/2025 22:52:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 01:33:17] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [03/Nov/2025 01:33:17] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 12:56:20] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 12:56:20] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 12:56:21] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 12:56:21] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:00:16] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:00:16] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:00:16] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:01:29] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:01:29] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:01:29] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:03] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:03] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:03] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:58] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:58] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:58] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 13:14:59] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 14:54:44] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [03/Nov/2025 14:54:44] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 14:57:47] code 400, message Bad request version ('À\x14À')
+127.0.0.1 - - [03/Nov/2025 14:57:47] "[31m[1m\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03¸Ýh\\g(\x01Ý5\x09\x8c35P\x08nÚ/%x\x0f\x8bm\x8cÓÐ\x1c5ÖK\x02æ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 17:33:55] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:33:56] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:33:56] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:38:56] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:38:57] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:42:29] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:42:29] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:23] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:23] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:23] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:35] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:35] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:49:35] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:50:08] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:50:08] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:40] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:40] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:40] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:50] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:50] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:53:51] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:23] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:23] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:23] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:30] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:31] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:54:31] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:56:28] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:56:28] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 17:56:29] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:01:24] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:01:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:01:24] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:10:17] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:10:17] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:10:17] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:17:39] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:17:39] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:17:39] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:19:30] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:19:30] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:19:30] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:25:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:26:06] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:26:06] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:26:06] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:26:38] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:26:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:27:30] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:27:32] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:28:59] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:29:00] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:29:00] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:30:59] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:30:59] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:30:59] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:30:59] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:31:17] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:31:17] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:31:17] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:33:23] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:33:23] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:33:23] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:36:43] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:36:43] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:37:15] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:37:48] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:38:28] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:38:28] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:40:02] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:40:02] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:40:03] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:48:37] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:48:37] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:49:32] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:53:56] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 18:58:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:02:09] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:02:09] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:07:02] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:07:02] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:07:02] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:08:49] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:08:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:10:26] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:12:01] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:12:01] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:12:21] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:15:41] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:15:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:17:03] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:17:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:22:55] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:25:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:32:32] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 19:32:48] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 19:32:55] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 19:33:31] "[31m[1mPOST /action/read_chat_history HTTP/1.1[0m" 400 -
+127.0.0.1 - - [03/Nov/2025 19:50:47] "[31m[1mGET /action/read_chat_history HTTP/1.1[0m" 405 -
+127.0.0.1 - - [03/Nov/2025 19:50:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 19:54:07] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:54:08] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:54:18] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:54:18] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:55:02] "[31m[1mGET /action/read_chat_history HTTP/1.1[0m" 405 -
+127.0.0.1 - - [03/Nov/2025 19:55:12] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:55:39] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 19:55:58] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [03/Nov/2025 20:57:22] "[31m[1mGET /action/read_chat_history HTTP/1.1[0m" 405 -
+127.0.0.1 - - [03/Nov/2025 20:57:23] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 20:57:31] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [03/Nov/2025 23:33:14] "POST /start HTTP/1.1" 200 -
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/test.py', reloading
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 456-251-975
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/test.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 456-251-975
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/test.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 456-251-975
+127.0.0.1 - - [04/Nov/2025 06:22:36] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [04/Nov/2025 06:22:36] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [04/Nov/2025 14:10:49] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 14:10:49] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 14:10:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 14:37:07] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [04/Nov/2025 14:37:07] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [04/Nov/2025 15:28:02] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 15:28:02] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 15:28:02] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 15:28:02] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 15:32:31] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 15:32:31] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 16:21:41] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [04/Nov/2025 16:21:41] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [04/Nov/2025 21:45:44] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 21:45:45] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 21:45:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [04/Nov/2025 21:45:49] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 01:10:47] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [05/Nov/2025 01:10:47] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 10:47:51] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:47:51] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:47:51] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:47:55] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:48:20] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:51:58] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:51:58] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:51:58] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:51:58] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:53:00] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:53:00] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:53:00] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:53:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:53:59] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 10:56:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 11:05:16] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 11:05:16] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 11:05:16] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 11:05:16] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 15:57:38] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [05/Nov/2025 15:57:38] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 19:01:17] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:01:17] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:01:17] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:01:17] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:04:24] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:04:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:04:34] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:27:26] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:28:32] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:37:04] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:38:58] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [05/Nov/2025 19:38:58] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 19:43:26] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:46:49] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:46:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:46:54] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:51:57] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:51:59] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:00] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:00] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:07] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:38] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:52:38] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:53:02] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:54:16] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:54:16] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:54:21] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:55:17] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:55:17] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 19:55:21] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:32:50] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:32:50] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:32:50] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:39:48] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:39:50] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:39:50] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:47:48] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:47:48] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:47:48] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:48:31] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:48:32] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:48:34] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:54:46] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 20:54:46] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 20:55:18] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 20:56:37] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 20:57:31] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 20:59:40] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:59:40] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:59:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 20:59:41] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:01:08] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:01:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:08:35] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:08:35] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:08:35] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:11:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:12:01] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:32:06] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 21:34:03] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 21:36:26] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:36:26] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:36:26] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 21:36:31] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:30:44] "[31m[1mPOST /action/new_chat HTTP/1.1[0m" 400 -
+127.0.0.1 - - [05/Nov/2025 22:48:10] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:48:10] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:48:10] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:48:12] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:48:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:50:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:06] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:06] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:06] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:41] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:41] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 22:51:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:12:32] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [05/Nov/2025 23:12:32] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 02:13:50] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [06/Nov/2025 02:13:50] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 04:52:47] code 400, message Bad request syntax ('\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03+\x01\x0f`c')
+127.0.0.1 - - [06/Nov/2025 04:52:47] "[31m[1m\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03+\x01\x0f`c[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 04:52:51] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 04:59:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 07:11:10] code 400, message Bad request version ('À#À¬À®À+À')
+127.0.0.1 - - [06/Nov/2025 07:11:10] "[31m[1m\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03ß*­°Ì\x09F\x11\x10¢ÒáÒ¼B­+Þ³FX Ý@æ\x94£\x19û1ô\x03 Ë\x7f\x14â\x07H§\x87ö²ý\x10Ç\x1bð"Dní&¢\x1d\x1d+\x01\x03>*þ\x18\x89!\x00\x8a\x00\x16\x003\x00gÀ\x9eÀ¢\x00\x9e\x009\x00kÀ\x9fÀ£\x00\x9f\x00E\x00¾\x00\x88\x00Ä\x00\x9aÀ\x08À\x09À#À¬À®À+À[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 07:11:15] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 07:19:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 08:12:41] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [06/Nov/2025 08:12:41] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 15:45:29] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [06/Nov/2025 15:45:29] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [06/Nov/2025 17:45:16] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:45:19] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:45:20] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:45:20] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:48:07] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:48:15] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:48:15] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:48:16] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:49:06] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:50:02] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:50:08] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:50:09] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:50:09] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:51:01] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:51:06] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:51:07] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:51:07] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:53:43] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:53:45] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:53:45] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:53:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:55:01] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:55:03] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:55:03] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:55:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:55:39] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:56:38] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:56:38] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:56:39] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:56:39] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:58:49] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:58:49] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:58:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:58:49] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 17:59:12] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:12:18] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:12:18] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:12:19] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:12:19] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:12:40] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:13:41] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:13:42] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:13:42] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:13:43] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:14:04] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:14:50] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:14:54] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:14:54] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:14:55] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:15:17] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:16:16] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:16:20] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:16:20] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:16:20] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:16:50] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:17:14] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:17:15] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:17:15] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:17:15] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:19:47] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:19:47] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:19:48] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:19:49] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:20:16] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:20:30] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:20:31] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:20:31] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:20:31] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:28:51] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:28:51] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:28:51] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:28:52] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:29:18] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:29:32] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:29:32] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:29:32] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:29:33] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:05] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:05] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:06] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:07] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:45] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:54] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:56] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:56] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:31:57] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 18:32:29] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [06/Nov/2025 21:37:17] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 21:37:17] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Nov/2025 21:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Nov/2025 01:36:41] "[33mGET / HTTP/1.0[0m" 404 -
+127.0.0.1 - - [07/Nov/2025 04:21:47] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [07/Nov/2025 04:21:47] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 04:49:46] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [07/Nov/2025 04:49:46] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 08:46:22] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [07/Nov/2025 08:46:22] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 09:12:28] code 400, message Bad request syntax ('SSH-2.0-Go')
+127.0.0.1 - - [07/Nov/2025 09:12:28] "[31m[1mSSH-2.0-Go[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 12:22:54] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [07/Nov/2025 16:09:54] code 400, message Bad request syntax ('SSH-2.0-Go')
+127.0.0.1 - - [07/Nov/2025 16:09:54] "[31m[1mSSH-2.0-Go[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 18:52:32] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [07/Nov/2025 18:52:32] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 22:53:04] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [07/Nov/2025 22:53:04] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [07/Nov/2025 23:00:31] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:00:32] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:00:32] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:00:32] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:01:50] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:01:50] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:01:50] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:12:09] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [07/Nov/2025 23:58:21] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [07/Nov/2025 23:58:21] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 00:00:52] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:00:53] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:00:53] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:00:53] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:10:58] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:22:27] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:22:27] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:22:27] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:22:27] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:26:02] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:26:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:26:03] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:26:24] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:26:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 00:36:49] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:11] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:11] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:11] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:11] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:38] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:16:43] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [08/Nov/2025 01:16:43] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 01:16:53] code 400, message Bad request version ('À\x13À')
+127.0.0.1 - - [08/Nov/2025 01:16:53] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03I\x06²ù¼\x99iÀYûøºe-\x83Ud]\x0e\x8d·b8´gÆÝ9dZ8f gÁ\x81i³öòË°©\x19NÖ½\x95g|püé<Z¡\x90T·é¥8'O;\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 01:17:03] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:17:03] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 01:17:07] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 01:17:29] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:18:30] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 01:28:44] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 05:14:00] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+127.0.0.1 - - [08/Nov/2025 05:14:00] "[31m[1m\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 10:51:30] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [08/Nov/2025 10:51:30] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 12:33:48] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [08/Nov/2025 12:33:48] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 15:18:35] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:18:35] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:18:35] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:18:35] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:28:56] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:41:05] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:41:05] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:41:05] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:41:05] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:42:36] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:42:36] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:42:36] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:43:34] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:44:52] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:44:52] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:44:52] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:47:41] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:47:41] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:47:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:48:05] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:50:12] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 15:58:13] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:30] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:31] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:31] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:58] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:58] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:00:58] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:08:18] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:08:18] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:08:18] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:16:22] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:26:57] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:27:56] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:27:56] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:27:56] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:27:56] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:28:16] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 16:38:53] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [08/Nov/2025 18:28:01] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 18:28:02] code 400, message Bad request version ('À\x13À')
+127.0.0.1 - - [08/Nov/2025 18:28:02] "[31m[1m\x16\x03\x01\x00ò\x01\x00\x00î\x03\x03y\x1bº\x8eZïE(iWÖÙ\x86\x88\x9a(Z\x94Và\x8c¼ñGß\x9dÁ;\x84\x0f\x18. É\x1bmcW°+\x12b0T\x9b?\x11 ,)Ò­28';\x89\x8eÜÖô[[\x8dÜ\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 18:28:02] code 400, message Bad HTTP/0.9 request type ('t3')
+127.0.0.1 - - [08/Nov/2025 18:28:02] "[31m[1mt3 12.1.2[0m" 400 -
+127.0.0.1 - - [08/Nov/2025 18:29:05] "[33mGET / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 18:29:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 18:29:05] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 18:29:05] "[33mGET /sitemap.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [08/Nov/2025 20:49:41] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [08/Nov/2025 20:49:41] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 00:22:32] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [09/Nov/2025 00:22:32] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 02:52:57] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [09/Nov/2025 02:52:57] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 02:52:57] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [09/Nov/2025 02:52:57] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 15:02:09] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 15:02:09] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 15:02:09] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 15:02:10] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 15:02:18] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 15:12:28] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 16:36:33] code 400, message Bad request syntax ('MGLNDD_223.109.141.6_5007')
+127.0.0.1 - - [09/Nov/2025 16:36:33] "[31m[1mMGLNDD_223.109.141.6_5007[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 17:19:12] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:19:12] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:19:12] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:19:12] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:22:16] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+127.0.0.1 - - [09/Nov/2025 17:22:16] "[31m[1m\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 17:29:40] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:41:39] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:41:39] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:41:39] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:41:39] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:42:08] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 17:52:27] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:47:31] "[33mGET / HTTP/1.0[0m" 404 -
+127.0.0.1 - - [09/Nov/2025 19:47:31] "[33mOPTIONS / HTTP/1.0[0m" 404 -
+127.0.0.1 - - [09/Nov/2025 19:47:32] code 400, message Bad request version ('RTSP/1.0')
+127.0.0.1 - - [09/Nov/2025 19:47:32] "[31m[1mOPTIONS / RTSP/1.0[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:37] code 400, message Bad request version ('\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:37] "[31m[1m\x80\x00\x00(rþ\x1d\x13\x00\x00\x00\x00\x00\x00\x00\x02\x00\x01\x86 \x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:42] code 400, message Bad HTTP/0.9 request type ('\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:42] "[31m[1m\x00\x1e\x00\x06\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x07version\x04bind\x00\x00\x10\x00\x03[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:42] code 400, message Bad request syntax ('HELP')
+127.0.0.1 - - [09/Nov/2025 19:47:42] "[31m[1mHELP[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:42] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:42] "[31m[1m\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:43] code 400, message Bad request version ('\x00/\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:43] "[31m[1m\x16\x03\x00\x00i\x01\x00\x00e\x03\x03U\x1c§ärandom1random2random3random4\x00\x00\x0c\x00/\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:43] code 400, message Bad request syntax ('\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01')
+127.0.0.1 - - [09/Nov/2025 19:47:43] "[31m[1m\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:48] code 400, message Bad request version ('0.12\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:48] "[31m[1m\x00\x00\x00¤ÿSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:54] code 400, message Bad HTTP/0.9 request type ('l\x00')
+127.0.0.1 - - [09/Nov/2025 19:47:54] "[31m[1ml\x00\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:47:54] code 400, message Bad request version ('SIP/2.0')
+127.0.0.1 - - [09/Nov/2025 19:47:54] "[31m[1mOPTIONS sip:nm SIP/2.0[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:48:00] code 400, message Bad HTTP/0.9 request type ('AMQP\x00\x00')
+127.0.0.1 - - [09/Nov/2025 19:48:00] "[31m[1mAMQP\x00\x00\x09\x01[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:48:00] "[33mGET /devicedesc.xml HTTP/1.1[0m" 404 -
+127.0.0.1 - - [09/Nov/2025 19:48:00] code 400, message Bad request version ('\x00/\x00')
+127.0.0.1 - - [09/Nov/2025 19:48:00] "[31m[1m\x16\x03\x00\x00i\x01\x00\x00e\x03\x03U\x1c§ärandom1random2random3random4\x00\x00\x0c\x00/\x00[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:48:10] code 400, message Bad request version ("Ué\x12\x00\x9c\x13\x02\x13\x03\x13\x01\x003\x009\x005\x00/À,À0\x00£\x00\x9fÌ©Ì¨ÌªÀ¯À\xadÀ£À\x9fÀ]ÀaÀWÀSÀ+À/\x00¢\x00\x9eÀ®À¬À¢À\x9eÀ\\À`ÀVÀRÀ$À(\x00k\x00jÀsÀw\x00Ä\x00ÃÀ#À'\x00g\x00@ÀrÀv\x00¾\x00½À")
+127.0.0.1 - - [09/Nov/2025 19:48:10] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x83y\x81\x0c\x93Óæí0íË\x9fM$§Zs/×\x8aR\x0d~2\x15?Ø\x97\x19R\x86ú s8ë]\x05þ,_\x1cÍìYÙ°òç\x82&±ç¹ÃE\x90x\x03?\x93 Ué\x12\x00\x9c\x13\x02\x13\x03\x13\x01\x003\x009\x005\x00/À,À0\x00£\x00\x9fÌ©Ì¨ÌªÀ¯À­À£À\x9fÀ]ÀaÀWÀSÀ+À/\x00¢\x00\x9eÀ®À¬À¢À\x9eÀ\\À`ÀVÀRÀ$À(\x00k\x00jÀsÀw\x00Ä\x00ÃÀ#À'\x00g\x00@ÀrÀv\x00¾\x00½À[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 00:01:45] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 00:01:45] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 00:01:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 00:01:45] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 00:11:49] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 01:04:25] code 400, message Bad HTTP/0.9 request type ('W\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00')
+127.0.0.1 - - [10/Nov/2025 01:04:25] "[31m[1mW\x00\x00\x00\x00\x11\x11\x07\x00\x00ÿÿ\x03\x00\x00þ\x03\x00\x00\x14\x00\x1c\x08[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 01:25:58] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [10/Nov/2025 01:25:58] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 04:35:40] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [10/Nov/2025 04:35:40] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 08:19:11] code 400, message Bad request syntax ('SSH-2.0-Go')
+127.0.0.1 - - [10/Nov/2025 08:19:11] "[31m[1mSSH-2.0-Go[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 12:47:08] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 12:47:08] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 12:47:08] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 12:47:09] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 12:47:22] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 12:57:30] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:30:59] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:30:59] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:30:59] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:30:59] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:34:13] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:34:13] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:34:13] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:36:42] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:36:42] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:36:42] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:39:41] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:40:29] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:50:36] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:50:36] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 14:50:36] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:22] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:22] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:23] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:23] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:32] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:40] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:45] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:45] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:00:45] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:10:51] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:12:00] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:12:00] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:12:00] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:12:01] "POST /action/get_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:12:17] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 15:20:39] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+127.0.0.1 - - [10/Nov/2025 15:20:39] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 15:22:22] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 16:01:47] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 16:01:47] "POST /action/new_chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 16:01:47] "POST /action/read_chat_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 16:01:47] "POST /action/chat HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 16:12:05] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:35:43] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:35:44] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:35:51] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:36:02] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:36:18] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:36:18] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:36:22] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:36:38] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:37:00] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:37:00] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:37:05] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:37:21] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:48:35] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:48:35] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 17:48:41] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:08:33] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:08:34] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:08:44] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:08:46] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:09:57] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:09:57] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:10:03] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:25:15] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:25:15] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:25:27] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:25:35] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:26:06] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:26:17] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:08] "[31m[1mPOST /action/get_analyse_history HTTP/1.1[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 18:28:13] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:17] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:30] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:36] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:38] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:28:51] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:32:20] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:32:20] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:32:29] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:32:57] "[31m[1mPOST /action/get_analyse_history HTTP/1.1[0m" 400 -
+127.0.0.1 - - [10/Nov/2025 18:33:03] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:33:06] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:37:20] "GET /end HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:37:23] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:37:27] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:38:34] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:38:34] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:38:42] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:39:24] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:41:16] "POST /action/generate_graph HTTP/1.1" 200 -
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+begin
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器出现异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器出现异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+  -summary:您提供的因果推理链为空（[]），因此目前没有具体的因果关系信息可供分析。
+
+为了进行变压器故障的根本原因分析，请您补充完整的因果逻辑推理链，例如：
+
+> “绝缘老化 <- 长期过热 <- 冷却系统失效 <- 油泵停运 <- 电源故障”
+
+一旦我获得完整的因果链，我将基于电力变压器的运行原理、常见故障模式及诊断标准（如IEC 60599、IEEE C57等），逐步解析各环节的物理机制，识别关键致因，并最终确定根本原因（Root Cause），同时可提供改进建议或预防措施。
+
+请提供具体的因果推理链，我将立即为您分析。
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器异响
+  -identify_event:['变压器异响']
+  -fault_nodes:['变压器内发出异响']
+start generate_graph
+  -input:变压器有异响
+  -identify_event:['变压器有异响']
+  -fault_nodes:['变压器内发出异响']
+start analyse
+  -choices:变压器铁芯因谐波作用产生过热现象
+    -current path:变压器内发出异响
+    -cadidate nodes:[负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用]
+    -new path:变压器内发出异响<-谐波作用
+
+out
+  -summary:根据提供的因果推理链：  
+**[变压器内发出异响 ← 谐波作用]**
+
+我们将按照因果逻辑逐步分析，并结合变压器运行原理和故障诊断知识，追溯可能的根本原因。
+
+---
+
+### 第一步：现象分析 —— “变压器内发出异响”
+
+- **现象描述**：变压器在正常运行中应仅有均匀的电磁噪声（如“嗡嗡”声）。若出现异常声响（如“噼啪”、“吱吱”、剧烈振动声等），则表明内部存在非正常电磁或机械行为。
+- **常见成因包括**：
+  - 绕组松动或变形
+  - 铁心多点接地或硅钢片松动
+  - 局部放电或电弧
+  - 磁致伸缩加剧
+  - **谐波引起的电磁力波动**
+
+但根据给定的因果链，此处明确指出异响的起因是“**谐波作用**”，我们据此深入分析。
+
+---
+
+### 第二步：中间原因分析 —— “谐波作用”
+
+- **什么是谐波？**  
+  谐波是指电力系统中频率为基波频率（通常50Hz）整数倍的电压或电流分量。例如3次（150Hz）、5次（250Hz）等。
+  
+- **谐波如何导致变压器异响？**
+  1. **磁通畸变**：谐波电压会导致铁心中主磁通波形畸变，引起不均匀的磁致伸缩效应。
+  2. **附加振动**：磁致伸缩的非线性变化会在铁心叠片间产生高频振动，引发异常噪音。
+  3. **绕组电磁力增加**：谐波电流在绕组中产生额外的交变电磁力（与频率平方相关），可能导致绕组微动或共振，发出异响。
+  4. **局部过热与结构松动**：长期谐波作用可导致局部温升，绝缘老化，进而使夹件、压板等紧固结构松弛，加剧振动和噪声。
+
+因此，“谐波作用”确实是引发变压器异响的合理技术原因。
+
+---
+
+### 第三步：追溯根本原因（Root Cause）
+
+虽然“谐波作用”是直接原因，但它本身通常是**外部系统或负载侧问题的表现**，不是独立发生的。我们需要进一步追问：**为什么会出现显著的谐波？**
+
+结合电力系统知识，可能的根本原因包括：
+
+#### 1. 非线性负载接入
+- 常见设备：变频器、整流器、电弧炉、UPS、LED照明、充电装置等。
+- 这些设备从电网吸取非正弦电流，向系统注入大量谐波电流，尤其以5次、7次、11次、13次为主。
+- 若变压器为这些负载供电，则其绕组和铁心将承受谐波电压/电流影响。
+
+#### 2. 系统谐振放大
+- 当系统阻抗（特别是容性元件，如无功补偿电容器）与变压器感抗在某一谐波频率下发生并联或串联谐振时，即使原始谐波含量较小，也可能被显著放大。
+- 此情况常发生在低压配电系统中加装电容器组后未配置滤波电抗器的情形。
+
+#### 3. 发电或电源侧质量问题
+- 如新能源逆变器并网控制不良、直流偏磁等问题，也可能引入谐波。
+
+---
+
+### 结论：根本原因判定
+
+基于以上分析，尽管因果链仅给出两层关系：“异响 ← 谐波作用”，但从工程实际出发，**谐波作用并非自发产生**，而是由外部因素引起。
+
+✅ **因此，该变压器故障的根本原因最可能是：**
+
+> **非线性负载大量接入或系统发生谐波谐振，导致电网中谐波含量升高，从而在变压器内部引发机械振动与异响。**
+
+---
+
+### 建议措施（供用户参考）：
+
+1. **测量谐波谱**：使用电能质量分析仪检测变压器一次侧和二次侧的电压、电流谐波成分（重点关注THD、Ih、Vh）。
+2. **检查负载类型**：排查下游是否新增大功率变频设备、整流装置等非线性负载。
+3. **评估无功补偿装置**：确认电容器组是否配置了调谐电抗器（detuned reactor），防止谐振。
+4. **安装滤波装置**：如有必要，加装有源或无源滤波器抑制特定次数谐波。
+5. **加强监测**：对变压器振动、噪声、油色谱进行持续监控，预防发展为更严重故障（如匝间短路、绝缘击穿）。
+
+---
+
+📌 **总结一句话根本原因**：  
+> 变压器内部异响的根本原因是由于非线性负载或系统谐振导致的谐波电流/电压升高，引发铁心磁致伸缩加剧和绕组电磁振动所致。127.0.0.1 - - [10/Nov/2025 18:42:03] "POST /action/root_cause_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:42:18] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:43:07] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:43:25] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:43:41] "POST /action/root_cause_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:44:02] "POST /action/get_analyse_history HTTP/1.1" 200 -
+
+start generate_graph
+  -input:变压器有异响
+  -identify_event:['变压器有异响']
+  -fault_nodes:['变压器内发出异响']
+start analyse
+  -choices:负荷变化大造成绕组机械应力反复变化，引发结构松动并产生噪声
+    -current path:变压器内发出异响
+    -cadidate nodes:[负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用, 负荷变化大, 谐波作用]
+    -new path:变压器内发出异响<-负荷变化大
+
+start analyse
+  -choices:变压器冷却系统效率下降引起运行温度高
+    -current path:变压器内发出异响<-负荷变化大
+    -cadidate nodes:[运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃, 运行温度高, 温度最低在10℃]
+    -new path:变压器内发出异响<-负荷变化大<-运行温度高
+
+out
+  -summary:根据提供的因果推理链：  
+**[变压器内发出异响 ← 负荷变化大 ← 运行温度高]**
+
+我们将按照因果逻辑逐层分析，并结合变压器运行原理与故障诊断知识，追溯至根本原因。
+
+---
+
+### 第一步：现象分析 —— “变压器内发出异响”
+
+- **现象描述**：变压器在运行过程中出现异常声响（如嗡嗡声增强、放电声、振动噪声等）。
+- **可能成因**：
+  - 铁心松动或磁致伸缩加剧；
+  - 绕组变形或位移导致电磁力不平衡；
+  - 负载剧烈波动引起电流突变，造成电磁振动增强；
+  - 局部放电或绝缘击穿；
+  - 机械结构松动。
+
+但在本推理链中，明确指出该异响的起因为“负荷变化大”，因此我们聚焦于由负载引起的动态响应。
+
+---
+
+### 第二步：中间原因 —— “负荷变化大”
+
+- **解释**：指变压器所带负载在短时间内发生显著波动（如大型设备启停、负荷投切频繁、电网调度变动等）。
+- **影响**：
+  - 引起电流剧烈变化，导致绕组电磁力波动，产生机械振动和噪声；
+  - 温升随之波动，热胀冷缩效应可能加剧结构应力；
+  - 可能引发局部过热或热点形成。
+
+此步骤说明：**负荷大幅波动是导致异响的直接驱动因素**。但根据推理链，其自身又是由“运行温度高”引起，这看似不符合常规逻辑（通常负荷大 → 温升高），需进一步辨析。
+
+> ⚠️ 注意：此处因果方向为 **“负荷变化大 ← 运行温度高”**，即“运行温度高”导致“负荷变化大”。这与物理常识不符，在正常情况下，是“负荷大”导致“温度高”，而不是反过来。
+
+因此，我们需要对这一因果关系进行合理性判断和修正性解读。
+
+---
+
+### 第三步：逻辑校验与深层分析 —— “运行温度高”是否可能导致“负荷变化大”？
+
+从物理机制来看：
+
+- **运行温度高本身不会直接导致负荷变化**。负荷是由系统用电需求决定的，属于外部电网行为，不受单台变压器温度控制。
+- 但存在一种**间接可能性**：高温引发保护动作或设备限载，从而引起负荷调节或切换。
+
+#### 合理解释路径如下：
+
+1. 变压器长期运行温度过高 → 绝缘老化加速、散热能力下降；
+2. 高温触发温控装置报警或冷却系统自动投入；
+3. 若温度达到设定阈值，可能引起：
+   - 调度系统主动降低该变压器负荷（限电）；
+   - 自动切换负荷至备用变压器；
+   - 导致该变压器负荷突然减少或波动；
+4. 或者：高温导致绕组电阻增加、效率下降，在电压恒定时可能出现电流不稳定，反映为等效负荷波动。
+
+✅ 因此，只有在**控制系统介入或设备性能劣化条件下**，“运行温度高”才可能间接引发“负荷变化大”。
+
+但这属于**反向调节结果**，并非自然因果，更多体现为**故障发展过程中的连锁反应**。
+
+---
+
+### 综合推理链条再梳理：
+
+原始链：  
+**变压器内发出异响 ← 负荷变化大 ← 运行温度高**
+
+重新组织为更合理的时序与逻辑：
+
+1. **运行温度高** →  
+   → 加剧绝缘老化、降低设备承载能力；  
+   → 触发保护或人为干预 → **人为调整负荷（投切、转移）** →  
+   → 出现**非正常负荷波动（负荷变化大）** →  
+   → 电流突变、电磁力震荡 → **铁心、绕组振动加剧** →  
+   → **变压器内部发出异响**
+
+➡️ 所以，虽然表面因果链成立，但其中“负荷变化大 ← 运行温度高”不是直接因果，而是通过**保护机制或系统响应**实现的间接因果。
+
+---
+
+### 根本原因判定：
+
+尽管“负荷变化大”是异响的近因，“运行温度高”是前级诱因，但我们还需追问：
+
+> **为什么运行温度会高？**
+
+结合变压器专业知识，常见原因包括：
+
+- 冷却系统故障（风扇、油泵停运）；
+- 散热器积尘堵塞；
+- 过载运行（初始负荷过大）；
+- 内部故障（如匝间短路、铁心多点接地）导致附加损耗；
+- 油循环不良或油质劣化；
+- 环境温度过高。
+
+若无其他信息，默认假设当前“运行温度高”并非由短期过载引起，而是存在**持续性散热不良或内部损耗异常**。
+
+---
+
+### ✅ 最终结论：根本原因分析
+
+> **根本原因：变压器运行温度过高，源于冷却系统效能下降或内部损耗异常（如局部短路、铁心故障等），进而引发保护性负荷调节或电流不稳定，导致负荷波动，最终使变压器内部产生电磁振动而发出异响。**
+
+---
+
+### 🔍 建议措施：
+
+1. **检查冷却系统**：确认风扇、油泵、散热片工作正常，清理污垢；
+2. **监测油温和绕组温度**：对比历史数据，判断是否存在温升异常；
+3. **进行油色谱分析（DGA）**：排查是否存在局部放电、过热或电弧故障；
+4. **红外测温**：查找外壳热点，识别内部异常发热区域；
+5. **振动与噪声检测**：定位异响来源（铁心、绕组、夹件）；
+6. **审查负荷曲线**：确认是否有频繁投切或突变，排除外部扰动。
+
+---
+
+### 📌 总结
+
+| 层级 | 事件 | 类型 |
+|------|------|------|
+| 现象 | 变压器内发出异响 | 故障表现 |
+| 直接原因 | 负荷变化大 | 中间环节 |
+| 诱发原因 | 运行温度高 | 前置条件 |
+| **根本原因** | **冷却不良或内部异常损耗导致持续高温** | **根源问题** |
+
+> 💡 **根本原因：变压器因冷却系统故障或内部缺陷导致运行温度过高，进而引发系统调节下的负荷波动，最终产生异响。**
+
+建议立即开展状态评估与维护，防止故障升级为严重事故（如绝缘击穿、火灾）。127.0.0.1 - - [10/Nov/2025 18:45:27] "POST /action/root_cause_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:45:33] "POST /action/get_analyse_history HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2025 18:48:42] "GET /end HTTP/1.1" 200 -

@@ -1,4 +1,4 @@
-from flask import Flask, session, request, jsonify
+from flask import Flask, session, request, jsonify, Response
 from flask_cors import CORS
 import uuid
 from datetime import timedelta
@@ -7,11 +7,18 @@ import os
 from werkzeug.utils import secure_filename
 from config import PROJECT_ROOT
 
+import json
+import time
+import random
+os.environ["CUDA_VISIBLE_DEVICES"] = "4" 
+
 active_agents = {}
 
 app = Flask(__name__)
 CORS(app)  # 这将允许所有域的所有路由跨域请求
 app.permanent_session_lifetime = timedelta(hours=1)  # 会话有效期
+
+app.secret_key = os.urandom(24)  # 生成24字节的随机密钥
 
 @app.route('/test', methods=['GET'])
 def test():
@@ -31,9 +38,10 @@ def start():
 
     agent_id = str(uuid.uuid4())
     session['agent_id'] = agent_id
+    session['session_id'] = agent_id
 
     # 创建新的实例
-    agent = FaultAnalyseAgent(session_id=str(agent_id), user_id=user_id)
+    agent = FaultAnalyseAgent(session_id=str(agent_id), user_id=str(user_id))
 
     # 存储Agent引用
     active_agents[agent.id] = agent
@@ -43,6 +51,27 @@ def start():
         "message": "Agent started successfully",
     })
 
+def generator():
+    """模拟股票价格生成器"""
+    symbols = ['AAPL', 'GOOGL', 'MSFT', 'TSLA']
+    prices = {symbol: round(random.uniform(100, 500), 2) for symbol in symbols}
+    
+    while True:
+        # 更新价格
+        symbol = random.choice(symbols)
+        change = random.uniform(-5, 5)
+        prices[symbol] = max(0.01, prices[symbol] + change)
+
+        print(symbol)
+        
+        yield f"data: {json.dumps({
+            'symbol': symbol,
+            'price': round(prices[symbol], 2),
+            'change': round(change, 2),
+            'timestamp': time.time()
+        })}\n\n"
+        
+        time.sleep(0.5)  # 每0.5秒更新一次
 
 @app.route('/action/<action_name>', methods=['POST'])
 def perform_action(action_name):
@@ -59,13 +88,21 @@ def perform_action(action_name):
     # 获取请求参数
     parameters = request.get_json() or {}
     parameters.update(user_id=user_id)
-    print("parameters:" + str(parameters))
 
     # 执行操作
     try:
         if action_name == 'chat':
+            return Response(
+                agent.chat_agent.chat(query=parameters['query'], user_id=user_id),
+                mimetype='text/event-stream',
+                headers={
+                    'Cache-Control': 'no-cache',
+                    'Connection': 'keep-alive',
+                    'X-Accel-Buffering': 'no'  # 禁用Nginx缓冲
+                }
+            )
             from sse_starlette.sse import EventSourceResponse
-            return EventSourceResponse(agent.perform_action('chat', parameters))
+            return EventSourceResponse(agent.chat_agent.chat(query=parameters['query'], user_id=user_id))
         else:
             result = agent.perform_action(action_name, parameters)
             response = {}
@@ -110,7 +147,7 @@ def upload_file():
         return jsonify({'error': '未选择文件'}), 400
     
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
+        filename = secure_filename(str(file.filename))
         file_path = os.path.join(PROJECT_ROOT, '/temp', filename)
         file.save(file_path)
         return jsonify({

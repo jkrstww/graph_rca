@@ -70,6 +70,7 @@ class FaultAnalyseAgent():
         # self.graph.read_graph('./graph/graph.json')
         self.analyse_id = str(uuid.uuid4())
         self.final_summary = ''
+        self.user_id = user_id
 
     # def read_gragh(self, file_path: str):
     #     with open(file_path, 'r', encoding=get_encoding(file_path)) as f:
@@ -89,7 +90,7 @@ class FaultAnalyseAgent():
 
         return self.analyse_id
     
-    def getHistory(self, user_id: str) -> List[str]:
+    def getHistory(self, user_id: str) -> List[dict[str, str]]:
         '''获取根因分析记录'''
         file_name = user_id + '.json'
         file_path = PROJECT_ROOT + '/history/users/' + file_name
@@ -112,7 +113,7 @@ class FaultAnalyseAgent():
 
     def readHistory(self, id: str) -> AnalyseHistory:
         '''根据id读取根因分析历史记录'''
-        file_path = PROJECT_ROOT + '/history/analyse/' + id + '.json'
+        file_path = PROJECT_ROOT + '/history/analyses/' + id + '.json'
 
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -130,15 +131,15 @@ class FaultAnalyseAgent():
                 id=history_id, 
                 created_time=getCurrentTime(), 
                 name=self.final_summary[:10],
-                reason_paths=self.reason_paths,
+                reason_paths=[str(path) for path in self.reason_paths],
                 summary=self.final_summary)
             
             # 建立用户和历史对话记录的联系
             # 查看有没有这个用户的记录
             user_history_name = self.user_id + '.json'
-            user_list = os.listdr(PROJECT_ROOT + '/history/users')
+            user_list = os.listdir(PROJECT_ROOT + '/history/users')
 
-            user_history_path = PROJECT_ROOT + '/history/users/' + file_name
+            user_history_path = PROJECT_ROOT + '/history/users/' + user_history_name
 
             if user_history_name not in user_list:
                 user_history = UserHistory(user_id=self.user_id, chat_history=[], analyse_history=[])
@@ -159,7 +160,7 @@ class FaultAnalyseAgent():
             f.close()
             
             analyse_history_name = history_id + '.json'
-            analyse_history_path = PROJECT_ROOT + '/history/analyse/' + analyse_history_name
+            analyse_history_path = PROJECT_ROOT + '/history/analyses/' + analyse_history_name
             # 写入历史记录
             with open(analyse_history_path, 'w', encoding='utf-8') as f:
                 f.write(history.model_dump_json(indent=2, exclude_none=True))
@@ -308,13 +309,14 @@ class FaultAnalyseAgent():
         #     self.chat_agent.chat(query=query, user_id=user_id)
         # 根据history的id进行读取
         elif action_name == 'read_chat_history':
-            id = parameters['history_id']
+            id = parameters['id']
+
             self.chat_agent.readHistory(id)
-            return self.chat_agent.history.model_dump_json()
+            return self.chat_agent.history.model_dump()
         elif action_name == 'read_analyse_history':
-            id = parameters['history_id']
+            id = parameters['id']
             analyse_history = self.readHistory(id=id)
-            return analyse_history.model_dump_json()
+            return analyse_history.model_dump()
         elif action_name == 'get_chat_history':
             user_id = parameters['user_id']
             list = self.chat_agent.getHistoryList(user_id=user_id)
@@ -342,26 +344,27 @@ class FaultAnalyseAgent():
                 "analyse_id": analyse_id
             }
         elif action_name == 'get_chat_ref':
-            refs = self.chat_agent.reference_list()
+            refs = self.chat_agent.reference_list
+
             return {
                 'chat_ref_list': [
                     {
-                        'id': ref.id,
-                        'name': ref.name,
-                        'cause_effect': ref.cause_effect,
-                        'content': ref.content
+                        'id': ref['id'],
+                        'name': ref['name'],
+                        'cause_effect': ref['cause_effect'],
+                        'content': ref['content']
                     } for ref in refs
                 ]
             }
         elif action_name == 'get_chat_ref_latest':
-            refs = self.chat_agent.reference_list_latest()
+            refs = self.chat_agent.reference_list_latest
             return {
                 'chat_ref_list': [
                     {
-                        'id': ref.id,
-                        'name': ref.name,
-                        'cause_effect': ref.cause_effect,
-                        'content': ref.content
+                        'id': ref['id'],
+                        'name': ref['name'],
+                        'cause_effect': ref['cause_effect'],
+                        'content': ref['content']
                     } for ref in refs
                 ]
             }

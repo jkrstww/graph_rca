@@ -87,7 +87,7 @@ def extract_label_content(text: str, label: str) -> list:
     # 返回匹配结果列表
     return matches if matches else []
 
-def read_document_content(file_path: str) -> Optional[str]:
+def read_document_content(file_path: str) -> str:
     """
     从txt、doc、docx、pdf文件中读取文本内容
     
@@ -115,7 +115,7 @@ def read_document_content(file_path: str) -> Optional[str]:
             raise ValueError(f"不支持的文件格式: {file_ext}")
     except Exception as e:
         print(f"读取文件时出错 {file_path}: {str(e)}")
-        return None
+        return ''
 
 def _read_txt(file_path: str) -> str:
     """读取txt文件内容"""

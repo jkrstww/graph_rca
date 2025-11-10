@@ -1,7 +1,7 @@
 from agent.GenerateAgent import GenerateAgent
 from typing import List
 from reason_path import ReasonPath
-from llm.ollama_method import OllamaLLM
+from llm import OllamaLLM, QwenLLM
 from agent.prompt import FINAL_ANALYSE
 
 class FinalAnalyseAgent(GenerateAgent):
@@ -10,7 +10,8 @@ class FinalAnalyseAgent(GenerateAgent):
         self.system_instruction = FINAL_ANALYSE
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM(model_name='llama3.2')
+        # model = OllamaLLM(model_name='llama3.2')
+        model = QwenLLM(model_name='qwen-plus')
         content = model.predict(self.system_instruction.format(reason_paths=input))
 
         return content

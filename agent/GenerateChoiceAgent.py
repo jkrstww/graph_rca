@@ -4,7 +4,7 @@ from agent.GenerateAgent import GenerateAgent
 from typing import List
 from fault_node import FaultNode
 from reason_path import ReasonPath
-from llm.ollama_method import OllamaLLM
+from llm import OllamaLLM, QwenLLM
 from agent.prompt import CHOICE_GENERATE
 
 class GenerateChoiceAgent(GenerateAgent):
@@ -13,7 +13,8 @@ class GenerateChoiceAgent(GenerateAgent):
         self.system_instruction = CHOICE_GENERATE
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM(model_name='llama3.2')
+        # model = OllamaLLM(model_name='llama3.2')
+        model = QwenLLM(model_name='qwen-plus')
         content = model.predict(input)
 
         return content

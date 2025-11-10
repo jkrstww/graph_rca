@@ -3,6 +3,8 @@ from typing import Any, Optional
 from llm import BaseLLM
 from openai import OpenAI
 
+from config import QWEN_KEY
+
 
 class QwenLLM(BaseLLM):
     def __init__(
@@ -16,7 +18,7 @@ class QwenLLM(BaseLLM):
     def predict(self, input: str) -> str:
         client = OpenAI(
             # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-            api_key='sk-a780e4a78aa0401ea9d059e0f583ba1f',
+            api_key=QWEN_KEY,
             base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
         )
 

@@ -1,0 +1,16 @@
+{
+  "user_id": "123",
+  "chat_history": [
+    {
+      "id": "03264ebc-5156-4234-ae78-b3f7d26aee6a",
+      "created_time": "2025-10-31 11:12:43",
+      "name": "变压器发热，绕组变形"
+    },
+    {
+      "id": "4a097904-e3b6-48ce-b9d7-16b2ff0f6497",
+      "created_time": "2025-10-31 11:18:31",
+      "name": "变压器发热，绕组变形"
+    }
+  ],
+  "analyse_history": []
+}

@@ -1,0 +1,31 @@
+{
+  "user_id": "test_o-j8k4w4R7TFNAoHizrv1Wcfr2iM",
+  "chat_history": [
+    {
+      "id": "cf9157d2-1f0e-4bee-b3a5-2092ff68821f",
+      "created_time": "2025-11-05 21:36:26",
+      "name": "您好"
+    },
+    {
+      "id": "cfa30edf-6baa-4253-b419-3c7ac4e4d03f",
+      "created_time": "2025-11-10 14:30:59",
+      "name": "你好"
+    },
+    {
+      "id": "7a1661e6-13a5-49e1-a09d-4e603e22d401",
+      "created_time": "2025-11-10 14:34:13",
+      "name": "您好，变压器发热怎么"
+    },
+    {
+      "id": "08755b7a-c5df-4d62-95e5-4eb672c1d2f7",
+      "created_time": "2025-11-10 14:36:42",
+      "name": "变压器发热怎么回事"
+    },
+    {
+      "id": "32fa61b9-da91-44c5-8bd6-4d52add00ca4",
+      "created_time": "2025-11-10 14:50:36",
+      "name": "您好"
+    }
+  ],
+  "analyse_history": []
+}

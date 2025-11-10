@@ -1,6 +1,6 @@
 from agent.GenerateAgent import GenerateAgent
 from agent.prompt import NEXT_DECIDE
-from llm import OllamaLLM
+from llm import OllamaLLM, QwenLLM
 from typing import List
 from fault_node import FaultNode
 from reason_path import ReasonPath
@@ -11,7 +11,8 @@ class DecideNextAgent(GenerateAgent):
         self.system_instruction = NEXT_DECIDE
 
     def generate(self, input: str) -> str:
-        model = OllamaLLM(model_name='llama3.2')
+        # model = OllamaLLM(model_name='llama3.2')
+        model = QwenLLM(model_name='qwen-plus')
         content = model.predict(input)
 
         return content

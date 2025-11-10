@@ -1,0 +1,16 @@
+{
+  "user_id": "test",
+  "chat_history": [
+    {
+      "id": "8d85fdd7-aaf3-48d6-9c26-f14386f940a4",
+      "created_time": "2025-11-01 16:18:41",
+      "name": "你好"
+    },
+    {
+      "id": "09353bce-134d-4b10-bbca-602ef2d5c8d7",
+      "created_time": "2025-11-01 16:22:30",
+      "name": "变压器出现嗡嗡声？"
+    }
+  ],
+  "analyse_history": []
+}

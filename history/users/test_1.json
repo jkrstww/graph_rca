@@ -1,0 +1,11 @@
+{
+  "user_id": "test_1",
+  "chat_history": [],
+  "analyse_history": [
+    {
+      "id": "53faf0b5-1735-4911-a0db-4776edc673cc",
+      "created_time": "2025-11-10 18:25:35",
+      "name": "您提供的因果推理链为"
+    }
+  ]
+}

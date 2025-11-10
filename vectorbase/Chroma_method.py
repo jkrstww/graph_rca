@@ -6,6 +6,7 @@ from embedding import _OllamaEmbeddings
 from dataLoader import CauseEffectLoader, CausalGraphLoader, CauseEffectWithTitleLoader
 import inspect
 from config import PROJECT_ROOT
+import torch
 
 class ChromaVectorBase(BaseVectorBase):
     def __init__(
@@ -17,14 +18,14 @@ class ChromaVectorBase(BaseVectorBase):
         self.db_root_path = os.path.normpath(os.path.join(inspect.getfile(self.__class__), '../dbs/Chroma'))
 
 
-    def create(self, vectorbase_name: str, embedding_model: str = 'bge-m3', embedding_method = 'ollama'):
+    def create(self, vectorbase_name: str, embedding_model: str = 'text-embedding-v4', embedding_method = 'qwen'):
         db_path = self.db_root_path + '/' + vectorbase_name
 
         if os.path.exists(db_path):
             raise KeyError("该数据库已经存在！！！")
 
         try:
-            embedding_function = self.get_embed_func('ollama', 'bge-m3')
+            embedding_function = self.get_embed_func(embedding_model=embedding_model, embedding_method=embedding_method)
 
             self.vector_store = Chroma(
                 embedding_function=embedding_function,
@@ -118,15 +119,15 @@ if __name__ == '__main__':
     # print('start testing!!!')
 
     # db = ChromaVectorBase()
-    # db.open('transformers')
+    # db.open('transformers_with_title_qwen')
     # vector_store = db.vector_store
     # result = vector_store.similarity_search(
     #     "变压器发热",
     #     k=1,
     # )
 
-    db = ChromaVectorBase()
-    db.create('transformers_with_title')
-    db.add_documents(PROJECT_ROOT + '/graph/transformer_docs', CauseEffectWithTitleLoader)
-
     # print(result)
+
+    db = ChromaVectorBase()
+    db.create('transformers_with_title_qwen')
+    db.add_documents(PROJECT_ROOT + '/graph/transformer_docs', CauseEffectWithTitleLoader)
