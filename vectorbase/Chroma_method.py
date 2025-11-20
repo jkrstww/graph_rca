@@ -108,9 +108,9 @@ class ChromaVectorBase(BaseVectorBase):
             raise e
 
 if __name__ == '__main__':
-    # chromadb = ChromaVectorBase()
-    # chromadb.create('graph')
-    # chromadb.add_document(r'../graph/graph.json', CausalGraphLoader)
+    chromadb = ChromaVectorBase()
+    chromadb.create('graph')
+    chromadb.add_document(r'../graph/graph.json', CausalGraphLoader)
 
     # chromadb.open('test')
     # data = chromadb.vector_store.get()
@@ -128,6 +128,6 @@ if __name__ == '__main__':
 
     # print(result)
 
-    db = ChromaVectorBase()
-    db.create('transformers_with_title_qwen')
-    db.add_documents(PROJECT_ROOT + '/graph/transformer_docs', CauseEffectWithTitleLoader)
+    # db = ChromaVectorBase()
+    # db.create('transformers_with_title_qwen')
+    # db.add_documents(PROJECT_ROOT + '/graph/transformer_docs', CauseEffectWithTitleLoader)

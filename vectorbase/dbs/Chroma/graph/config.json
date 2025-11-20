@@ -1,6 +1,6 @@
 {
-    "embedding_model": "bge-m3",
-    "embedding_method": "ollama",
+    "embedding_model": "text-embedding-v4",
+    "embedding_method": "qwen",
     "vectorbase_type": "Chroma",
     "vectorbase_name": "graph"
 }

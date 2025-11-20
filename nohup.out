@@ -11,3 +11,15 @@
 127.0.0.1 - - [20/Nov/2025 21:06:49] "POST /action/generate_graph HTTP/1.1" 200 -
 127.0.0.1 - - [20/Nov/2025 21:07:13] "POST /action/root_cause_analyse HTTP/1.1" 200 -
 127.0.0.1 - - [20/Nov/2025 21:07:50] "POST /action/root_cause_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2025 21:12:21] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2025 21:12:21] "POST /action/new_analyse HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2025 21:12:28] "POST /action/generate_graph HTTP/1.1" 200 -
+127.0.0.1 - - [20/Nov/2025 21:22:28] "GET /end HTTP/1.1" 200 -
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/vectorbase/Chroma_method.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 234-531-938
+ * Detected change in '/data/zhangzhengke/project/TransformerGraphRAG/vectorbase/Chroma_method.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 234-531-938
