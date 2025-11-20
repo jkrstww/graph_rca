@@ -39,27 +39,36 @@ class FaultGraph:
                 if cause not in self.graph:
                     self.graph[cause] = FaultNode(cause)
 
-                node.next.append(self.graph[cause])
+                if self.graph[cause] not in node.next:
+                    node.next.append(self.graph[cause])
 
     def get_node(self, node: str) -> FaultNode:
-        if node in self.graph:
-            if node in self.graph:
-                fault_node = self.graph.get(node)
-                if type(fault_node) == FaultNode:
-                    return fault_node
-                else:
-                    raise KeyError('没有找到节点' + node)
-            else:
-                return FaultNode('')
+        # if node in self.graph:
+        #     if node in self.graph:
+        #         fault_node = self.graph.get(node)
+        #         if type(fault_node) == FaultNode:
+        #             return fault_node
+        #         else:
+        #             raise KeyError('没有找到节点' + node)
+        #     else:
+        #         return FaultNode('')
+        # else:
+        #     return FaultNode(node)
+        fault_node = self.graph.get(node)
+        if type(fault_node) == FaultNode:
+            return fault_node
         else:
-            return FaultNode(node)
+            raise KeyError('没有找到节点' + node)
 
 class FaultAnalyseAgent():
     def __init__(self, session_id: str, user_id: str):
         self.fault_nodes: List[FaultNode] = []
         self.reason_paths: List[ReasonPath] = []
+        self.reason_unit = AnalyseUnit()
+        self.reason_process: List[AnalyseUnit] = []
         self.graph = FaultGraph()
         self.id = session_id
+        self.user_init_input = ''
         self.created_time = datetime.now()
         self.event_identify_agent = EventIdentifyAgent()
         self.init_fault_node_agent = InitFaultNodeAgent()
@@ -69,8 +78,12 @@ class FaultAnalyseAgent():
         self.chat_agent = ChatAgent()
         # self.graph.read_graph('./graph/graph.json')
         self.analyse_id = str(uuid.uuid4())
+        # 因为有reason_path和reason_process两种历史记录的方式，为了便于切换，就统一了id
+        self.history_id = str(uuid.uuid4())
         self.final_summary = ''
         self.user_id = user_id
+        # 最后一次使用的时间
+        self.last_activity = datetime.now()
 
     # def read_gragh(self, file_path: str):
     #     with open(file_path, 'r', encoding=get_encoding(file_path)) as f:
@@ -81,7 +94,19 @@ class FaultAnalyseAgent():
     def clear(self):
         self.fault_nodes = []
         self.reason_paths = []
+        self.reason_process = []
         self.final_summary = ''
+        self.history_id = str(uuid.uuid4())
+        self.reason_unit = AnalyseUnit()
+    
+    def update_activity(self):
+        """更新最后活动时间"""
+        self.last_activity = datetime.now()
+
+    def cleanup(self):
+        """清理资源（如果有需要清理的资源）"""
+        print(f"清理Agent资源: {self.id}")
+        # 在这里添加任何需要清理的资源
 
     def new(self) -> str:
         '''重新开始根因分析'''
@@ -126,7 +151,7 @@ class FaultAnalyseAgent():
     def writeHistory(self):
             '''在分析结束时写历史记录'''
             # 只有在结束时才生成历史记录
-            history_id = str(uuid.uuid4())
+            history_id = self.history_id
             history = AnalyseHistory(
                 id=history_id, 
                 created_time=getCurrentTime(), 
@@ -166,6 +191,25 @@ class FaultAnalyseAgent():
                 f.write(history.model_dump_json(indent=2, exclude_none=True))
             f.close()
 
+    def writeProcess(self):
+            '''在分析结束时写过程记录'''
+            # 只有在结束时才生成过程记录
+            history_id = self.history_id
+            process = AnalyseProcess(
+                id=history_id, 
+                input=self.user_init_input,
+                created_time=getCurrentTime(), 
+                analyse_process=self.reason_process,
+                summary=self.final_summary
+            )
+            
+            analyse_process_name = history_id + '.json'
+            analyse_process_path = PROJECT_ROOT + '/history/process/' + analyse_process_name
+            # 写入历史记录
+            with open(analyse_process_path, 'w', encoding='utf-8') as f:
+                f.write(process.model_dump_json(indent=2, exclude_none=True))
+            f.close()
+
     # 根据当前的推理路径生成选项
     def generate_choice(self, reason_path: ReasonPath, candidate_nodes: List[FaultNode]) -> List[str]:
         try:
@@ -174,19 +218,28 @@ class FaultAnalyseAgent():
             return choices
         except Exception as e:
             raise e
+    
+    def convertReasonPath(self, reason_path: ReasonPath) -> OnGoingPath:
+        '''将ReasonPath转化为OnGoingPath'''
+        next_nodes = reason_path.next()
+
+        ongoing_path = OnGoingPath(
+            reason_path=str(reason_path),
+            next_nodes=[str(node) for node in next_nodes]
+        )
+
+        return ongoing_path
 
     def perform_action(self, action_name, parameters):
         if action_name == 'generate_graph':
             # 每次生成图的时候都需要重置推理路径
             self.clear_path()
-            print("start generate_graph")
+
             try:
                 context = parameters['context']
-                print('  -input:' + context)
+                self.user_init_input = context
                 fault_events = self.event_identify_agent.output(context)
-                print('  -identify_event:' + str(fault_events))
                 fault_nodes_str = self.init_fault_node_agent.output(fault_events)
-                print('  -fault_nodes:' + str(fault_nodes_str))
 
                 # 初始化推理路径
                 for node_str in fault_nodes_str:
@@ -199,16 +252,19 @@ class FaultAnalyseAgent():
                         reason_path.explore()
                         self.reason_paths.append(reason_path)
                 
+                self.reason_unit.reason_paths = [self.convertReasonPath(path) for path in self.reason_paths]
+                
                 # 遍历path列表，找到一条没有结束的路径
                 path_num = len(self.reason_paths)
                 for i in range(path_num):
                     reason_path = self.reason_paths[0]
 
                     if reason_path.is_final:
-                        old_path = self.reason_paths.pop()
+                        old_path = self.reason_paths.pop(0)
                         self.reason_paths.append(old_path)
                     else:
                         choices = self.generate_choice(self.reason_paths[0], self.reason_paths[0].next())
+                        self.reason_unit.candidate_choices = choices
 
                         return {
                             'is_final': False,
@@ -219,8 +275,10 @@ class FaultAnalyseAgent():
                 
                 # 全部遍历一遍，发现都结束了
                 self.final_summary = self.final_summary_agent.output(self.reason_paths)
+                self.reason_process.append(self.reason_unit)
                 self.writeHistory()
-                print("  -summary:"+self.final_summary)
+                self.writeProcess()
+
                 return {
                     "is_final": True,
                     "reason_paths": [str(path) for path in self.reason_paths],
@@ -242,26 +300,33 @@ class FaultAnalyseAgent():
         # 确定新加入的节点后将这条路径放在最后面
         # 路径走到尽头则不再进行处理
         elif action_name == 'root_cause_analyse':
-            print("start analyse")
+            # print("start analyse")
             choices = parameters['choices']
-            print("  -choices:"+str(choices))
+            # print("  -choices:"+str(choices))
+            self.reason_unit.selected_choices = choices
+
+            # 把unit加入，然后清空
+            self.reason_process.append(self.reason_unit)
+            self.reason_unit = AnalyseUnit()
 
             reason_path: ReasonPath = self.reason_paths[0]
             last_node: FaultNode = reason_path.path[-1]
             candidate_nodes = last_node.next
 
-            print("    -current path:"+str(reason_path))
-            print("    -cadidate nodes:"+str(candidate_nodes))
+            # print("    -current path:"+str(reason_path))
+            # print("    -cadidate nodes:"+str(candidate_nodes))
 
             update_fault_node_str = self.decide_next_agent.output(reason_path=reason_path, candidate_nodes=candidate_nodes, choices=choices)
             update_fault_node = self.graph.get_node(update_fault_node_str)
             reason_path.add_node(update_fault_node)
-            print("    -new path:"+str(reason_path))
-            print()
+            # print("    -new path:"+str(reason_path))
+            # print()
 
             # 把当前路径放在最后
-            old_path = self.reason_paths.pop()
+            old_path = self.reason_paths.pop(0)
             self.reason_paths.append(old_path)
+
+            self.reason_unit.reason_paths = [self.convertReasonPath(path) for path in self.reason_paths]
 
             # 遍历path列表，找到一条没有结束的路径
             path_num = len(self.reason_paths)
@@ -269,19 +334,21 @@ class FaultAnalyseAgent():
                 reason_path = self.reason_paths[0]
 
                 if reason_path.is_final:
-                    old_path = self.reason_paths.pop()
+                    old_path = self.reason_paths.pop(0)
                     self.reason_paths.append(old_path)
                 else:
                     reason_path.explore()
 
                     if reason_path.is_final:
-                        old_path = self.reason_paths.pop()
+                        old_path = self.reason_paths.pop(0)
                         self.reason_paths.append(old_path)
                     else:
                         last_node: FaultNode = reason_path.path[-1]
                         candidate_nodes = last_node.next
 
                         choices = self.generate_choice_agent.output(reason_path, candidate_nodes)
+                        self.reason_unit.candidate_choices = choices
+
                         return {
                             "is_final": False,
                             "reason_paths": [str(path) for path in self.reason_paths],
@@ -289,12 +356,12 @@ class FaultAnalyseAgent():
                             'analyse_id': self.analyse_id
                         }
 
-            print('out')
             # 全部遍历一遍，发现都结束了
             self.final_summary = self.final_summary_agent.output(self.reason_paths)
-            print("  -summary:"+self.final_summary)
+            self.reason_process.append(self.reason_unit)
 
             self.writeHistory()
+            self.writeProcess()
             return {
                 "is_final": True,
                 "reason_paths": [str(path) for path in self.reason_paths],
@@ -374,6 +441,15 @@ class FaultAnalyseAgent():
             return {
                 'content': content
             }
+        elif action_name == 'get_node':
+            node_name = parameters['name']
+            node = self.graph.get_node(node_name)
+
+            return {
+                'name': node_name,
+                'next': [str(n) for n in node.next]
+            }
+
         
 
             

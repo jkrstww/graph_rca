@@ -2,5 +2,6 @@
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+REFERENCE_PATH = os.path.join(PROJECT_ROOT, 'static', 'references')
 
-QWEN_KEY = "sk-24abb9585b9d4ca28158d8d40bbef1c5"
+QWEN_KEY = os.getenv('QWEN_KEY')

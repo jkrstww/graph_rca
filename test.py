@@ -148,4 +148,30 @@ def format_jsonl_file(input_file, output_file, indent=2):
                         print(f"第{line_num}行JSON解析错误: {e}")
 
 # 使用示例
-format_jsonl_file('./pairwise_causality.jsonl', 'pairwise_causality.json', indent=2)
+# format_jsonl_file('./pairwise_causality.jsonl', 'pairwise_causality.json', indent=2)
+
+origin_data_path = r'./graph/graph.json'
+output_data_path = r'./graph/graph.json'
+
+datas = []
+with open(origin_data_path, 'r', encoding='utf-8') as f:
+    datas = json.load(f)
+f.close()
+
+output = []
+for data in datas:
+    id = data['id']
+    effect = data['effect']
+    cause = [s for s in set(data['cause'])]
+        
+    obj = {
+        "id": id,
+        "effect": effect,
+        "cause": cause
+    }
+
+    output.append(obj)
+
+with open(output_data_path, 'w', encoding='utf-8') as f:
+    json.dump(output, f, ensure_ascii=False, indent=2)
+f.close()

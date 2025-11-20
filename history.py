@@ -22,6 +22,24 @@ class AnalyseHistory(BaseModel):
     reason_paths: List[str]
     summary: str
 
+class OnGoingPath(BaseModel):
+    reason_path: str = ''
+    next_nodes: List[str] = []
+
+# 定义根因分析的一个轮次
+class AnalyseUnit(BaseModel):
+    reason_paths: List[OnGoingPath] = []
+    candidate_choices: List[str] = []
+    selected_choices: str = ''
+
+# 定义一个完整的根因分析流程
+class AnalyseProcess(BaseModel):
+    id: str
+    created_time: str
+    input: str
+    analyse_process: List[AnalyseUnit]
+    summary: str
+
 # 定义一个历史元数据
 class History(BaseModel):
     id: str

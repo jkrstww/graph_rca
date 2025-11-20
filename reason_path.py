@@ -18,7 +18,7 @@ class ReasonPath:
             for node in reason_path:
                 self.path.append(node)
 
-            if self.next() == []:
+            if self.path[-1].next == []:
                 self.is_final = True
         else:
             raise ValueError("没有参数输入，无法完成初始化")
@@ -40,12 +40,13 @@ class ReasonPath:
             return False
         else:
             while len(last_node.next) == 1:
-                self.path.append(last_node)
+                self.path.append(last_node.next[0])
                 last_node = last_node.next[0]
 
             if last_node.next == []:
                 self.is_final = True
                 return False
+            # 说明至少有两个候选next节点
             else:
                 return True
 
