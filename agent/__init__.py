@@ -7,6 +7,8 @@ from .DecideNextAgent import DecideNextAgent
 from .FinalAnalyseAgent import FinalAnalyseAgent
 from .ChatAgent import ChatAgent
 from .SearchReferenceAgent import SearchReferenceAgent
+from .ImageAgent import ImageAgent
+from .DecideIfReferenceAgent import DecideIfReferenceAgent
 from .prompt import *
 
 __all__ = [
@@ -19,5 +21,7 @@ __all__ = [
     "FinalAnalyseAgent",
     'SearchReferenceAgent',
     "ChatAgent",
+    "ImageAgent",
+    "DecideIfReferenceAgent",
     "prompt",
 ]

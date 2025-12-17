@@ -1,0 +1,37 @@
+{
+  "id": "fe310c9a-cb63-4c02-b7a0-bdc2d1ac395b",
+  "create_time": "2025-11-29 11:56:31",
+  "name": "请直接回复‘火花’，",
+  "messages": [
+    {
+      "datetime": "2025-11-29 11:56:31",
+      "content": "请直接回复‘火花’，不要拼接任何其他内容。",
+      "role": "human"
+    },
+    {
+      "datetime": "2025-11-29 11:56:33",
+      "content": "火花",
+      "role": "ai"
+    },
+    {
+      "datetime": "2025-11-29 11:56:48",
+      "content": "你上次说的是什么",
+      "role": "human"
+    },
+    {
+      "datetime": "2025-11-29 11:56:50",
+      "content": "火花",
+      "role": "ai"
+    },
+    {
+      "datetime": "2025-11-29 11:56:51",
+      "content": "你上次说的是什么",
+      "role": "human"
+    },
+    {
+      "datetime": "2025-11-29 11:56:52",
+      "content": "火花",
+      "role": "ai"
+    }
+  ]
+}

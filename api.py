@@ -61,6 +61,10 @@ def start():
         
     data = request.get_json() or {}
 
+    # 创建文件类型标记，主要是为了在智能对话时确认上传的文件
+    session['file_type'] = 'none'
+    session['file_path'] = ''
+
     # 获取或创建用户ID
     user_id = data.get('user_id')
     session['user_id'] = user_id
@@ -121,8 +125,20 @@ def perform_action(action_name):
     # 执行操作
     try:
         if action_name == 'chat':
+            upload_file_name = parameters['filename'] if 'filename' in parameters else ''
+            upload_file_path = os.path.join(PROJECT_ROOT, 'temp', upload_file_name) if upload_file_name else ''
+
+            if upload_file_name != '':
+                file_ext = os.path.splitext(upload_file_name)[1].lower()
+                if file_ext in ['.txt', '.pdf', '.docx', '.doc']:
+                    upload_file_type = 'document'
+                elif file_ext in ['.png', '.jpg', '.jpeg']:
+                    upload_file_type = 'image'  
+            else:
+                upload_file_type = 'none'
+
             return Response(
-                agent.chat_agent.chat(query=parameters['query'], user_id=user_id),
+                agent.chat_agent.chat(query=parameters['query'], user_id=user_id, upload_file_path=upload_file_path, upload_file_type=upload_file_type),
                 mimetype='text/event-stream',
                 headers={
                     'Cache-Control': 'no-cache',
@@ -181,7 +197,7 @@ def get_status():
     })
 
 # 允许的文件扩展名
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'docx', 'doc'}
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -198,8 +214,10 @@ def upload_file():
         return jsonify({'error': '未选择文件'}), 400
     
     if file and allowed_file(file.filename):
-        filename = secure_filename(str(file.filename))
-        file_path = os.path.join(PROJECT_ROOT, '/temp', filename)
+        # filename = secure_filename(str(file.filename))
+        filename = secure_filename(f"{str(uuid.uuid4())}_{file.filename}")
+
+        file_path = os.path.join(PROJECT_ROOT, 'temp', filename)
         file.save(file_path)
         return jsonify({
             'message': '文件上传成功', 
@@ -207,6 +225,106 @@ def upload_file():
         }), 200
     
     return jsonify({'error': '文件类型不允许'}), 400
+
+@app.route('/upload_reference', methods=['POST'])
+def upload_reference_file():
+    if 'file' not in request.files:
+        return jsonify({'error': '没有文件部分'}), 400
+    
+    file = request.files['file']
+    
+    if file.filename == '':
+        return jsonify({'error': '未选择文件'}), 400
+    
+    if file and allowed_file(file.filename):
+        filename = file.filename
+        # filename = file.filename
+
+        file_path = os.path.join(PROJECT_ROOT, 'static', 'references', filename)
+        file.save(file_path)
+        return jsonify({
+            'message': '文件上传成功', 
+            'filename': filename
+        }), 200
+    
+    return jsonify({'error': '文件类型不允许'}), 400
+
+# --- 1. 删除文件的接口 ---
+@app.route('/delete/<filename>', methods=['DELETE'])
+def delete_file(filename):
+    """
+    删除指定文件
+    URL示例: DELETE /delete/b4d6a5-example.pdf
+    """
+    # 再次使用 secure_filename 防止路径遍历攻击 (如 ../../etc/passwd)
+    safe_filename = filename
+    file_path = os.path.join(PROJECT_ROOT, 'static', 'references', safe_filename)
+
+    if not os.path.exists(file_path):
+        return jsonify({'error': '文件不存在'}), 404
+
+    try:
+        os.remove(file_path)
+        return jsonify({
+            'message': '文件删除成功',
+            'filename': safe_filename
+        }), 200
+    except Exception as e:
+        # 捕获权限错误或其他IO错误
+        return jsonify({'error': f'删除失败: {str(e)}'}), 500
+
+
+# --- 2. 查找/获取文件列表接口 (支持简单的关键词搜索) ---
+@app.route('/files', methods=['GET'])
+def list_files():
+    """
+    列出所有文件，或根据关键词搜索文件
+    URL示例: 
+    - 获取所有: GET /files
+    - 搜索: GET /files?q=machine_learning
+    """
+    upload_dir = os.path.join(PROJECT_ROOT, 'static', 'references')
+    
+    # 确保目录存在，否则列表为空
+    if not os.path.exists(upload_dir):
+        return jsonify({'files': [], 'count': 0}), 200
+
+    try:
+        all_files = os.listdir(upload_dir)
+        
+        # 获取搜索关键词
+        query = request.args.get('q', '').lower()
+        
+        # 如果有搜索词，进行过滤；否则返回全部
+        if query:
+            filtered_files = [f for f in all_files if query in f.lower()]
+        else:
+            filtered_files = all_files
+
+        # 简单的排序，例如按修改时间倒序（最新的在前）
+        filtered_files.sort(key=lambda x: os.path.getmtime(os.path.join(upload_dir, x)), reverse=True)
+
+        return jsonify({
+            'files': filtered_files,
+            'count': len(filtered_files)
+        }), 200
+    except Exception as e:
+        return jsonify({'error': f'获取文件列表失败: {str(e)}'}), 500
+
+
+# --- 3. (可选) 下载/预览单个文件的接口 ---
+@app.route('/files/<filename>', methods=['GET'])
+def get_file(filename):
+    """
+    下载或预览文件内容
+    URL示例: GET /files/uuid_example.pdf
+    """
+    upload_dir = os.path.join(PROJECT_ROOT, 'static', 'references')
+    try:
+        # as_attachment=True 会触发下载，False 则尝试在浏览器显示(如PDF/图片)
+        return send_from_directory(upload_dir, filename, as_attachment=False)
+    except FileNotFoundError:
+        return jsonify({'error': '文件未找到'}), 404
 
 @app.route('/end')
 def end_session():

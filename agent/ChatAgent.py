@@ -1,8 +1,10 @@
 from agent.base import BaseAgent
+from agent.ImageAgent import ImageAgent
+from agent.DecideIfReferenceAgent import DecideIfReferenceAgent
 from langchain_ollama import ChatOllama
 from langchain_community.chat_models.tongyi import ChatTongyi
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, BaseMessage
-from typing import List
+from typing import List, Optional
 import json
 from vectorbase import ChromaVectorBase
 from langchain_core.documents import Document
@@ -51,7 +53,7 @@ class ChatAgent(BaseAgent):
         # 对话的id，这个是前端那边要求的，虽然不知道有什么用
         self.chat_id = str(uuid.uuid4())
 
-    def chat(self, query:str, user_id: str=''):
+    def chat(self, query:str, user_id: str='', upload_file_path: str='', upload_file_type: str='none'):
         initial_data = {
             "type": 'begin',
             "status": "starting!",
@@ -96,19 +98,48 @@ class ChatAgent(BaseAgent):
 
         self.history.messages.append(ChatMessage(datetime=getCurrentTime(), content=query, role='human'))
 
-        # 查找参考文献并将其转化为提示词
-        refs = self.generate_reference(query)
-        def refsToPrompt(refs: List):
-            content = '''
-                以下是参考文献，其中:后面的是因果关系对，"A,B"代表A是因，B是果。
+        # 输入图片就将图像的内容转化为上下文
+        if upload_file_type == 'image' and upload_file_path != '':
+            image_agent = ImageAgent()
+            image_content = image_agent.read_image(upload_file_path)
+
+            image_prompt = f'''
+                用户上传了一个文本文件，内容如下：
+                {image_content}
+                请根据以上内容回答用户的问题：{query}
             '''
-            for ref in refs:
-                content += '[' + str(ref['id']) + ']' + ref['name'] + ':' + ref['cause_effect'] + ';'
 
-            return content
+            self.messages.append(HumanMessage(content=image_prompt))
+        
+        # 如果上传的文件是文本文件，就把内容加入到提示词中
+        if upload_file_type == 'document' and upload_file_path != '':
+            file_content = read_document_content(file_path=upload_file_path)
 
-        ref_prompt = refsToPrompt(refs)
-        self.messages.append(HumanMessage(content=ref_prompt))
+            file_prompt = f'''
+                用户上传了一个文本文件，内容如下：
+                {file_content}
+                请根据以上内容回答用户的问题：{query}
+            '''
+            self.messages.append(HumanMessage(content=file_prompt))
+            
+        # 判断是否是和变压器故障诊断相关
+        decide_if_reference_agent = DecideIfReferenceAgent()
+        is_related = decide_if_reference_agent.output(query)
+
+        if is_related:
+            # 查找参考文献并将其转化为提示词
+            refs = self.generate_reference(query)
+            def refsToPrompt(refs: List):
+                content = '''
+                    以下是参考文献，其中:后面的是因果关系对，"A,B"代表A是因，B是果。
+                '''
+                for ref in refs:
+                    content += '[' + str(ref['id']) + ']' + ref['name'] + ':' + ref['cause_effect'] + ';'
+
+                return content
+
+            ref_prompt = refsToPrompt(refs)
+            self.messages.append(HumanMessage(content=ref_prompt))
 
         # 流式生成回答
         full_text = ''
@@ -187,6 +218,10 @@ class ChatAgent(BaseAgent):
     # 清理内存中的历史记录和对话记录以及参考文献，常用于重新开始一个对话
     def clear(self):
         self.clearMessages()
+        self.model = ChatTongyi(
+            model_name="qwen-plus",
+            streaming=True
+        )
 
         self.history.id = ''
         self.history.name = ''

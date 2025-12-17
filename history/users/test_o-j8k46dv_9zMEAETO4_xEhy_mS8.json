@@ -1,0 +1,32 @@
+{
+  "user_id": "test_o-j8k46dv_9zMEAETO4_xEhy_mS8",
+  "chat_history": [
+    {
+      "id": "1b933a86-9dcf-45a2-9172-eed8b81bd2d0",
+      "created_time": "2025-11-24 14:40:49",
+      "name": "你好"
+    },
+    {
+      "id": "4232643b-4be6-4772-814e-f6c7c79726ee",
+      "created_time": "2025-11-24 14:41:24",
+      "name": "你好"
+    },
+    {
+      "id": "03f0c062-53b1-4df3-bfac-2e50e0ac745a",
+      "created_time": "2025-11-24 14:48:26",
+      "name": "变压器爆炸"
+    }
+  ],
+  "analyse_history": [
+    {
+      "id": "cc34a213-6571-445b-8ea7-3a653ba0946c",
+      "created_time": "2025-11-24 14:43:26",
+      "name": "根据提供的因果推理链"
+    },
+    {
+      "id": "7a6514c5-c864-4c03-85ab-e4bea1a20c95",
+      "created_time": "2025-11-24 14:44:54",
+      "name": "我们来逐步分析给定的"
+    }
+  ]
+}
