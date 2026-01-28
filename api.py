@@ -240,6 +240,12 @@ def upload_reference_file():
         filename = file.filename
         # filename = file.filename
 
+        # 在服务器端
+        import urllib.parse
+
+        # 解码文件名
+        filename = urllib.parse.unquote(filename)
+
         file_path = os.path.join(PROJECT_ROOT, 'static', 'references', filename)
         file.save(file_path)
         return jsonify({

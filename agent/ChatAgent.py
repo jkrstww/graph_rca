@@ -48,6 +48,7 @@ class ChatAgent(BaseAgent):
             content='''
                 你是故障诊断领域的专家，你需要根据用户输入以及参考文献一步一步地对故障根本原因进行推理，
                 在必要时，你需要询问用户，用于下一步的推理。
+                注意：如果用户的提问和变压器故障诊断无关，请礼貌地拒绝回答。
         ''')
         self.messages.append(self.system_instruction)
         # 对话的id，这个是前端那边要求的，虽然不知道有什么用
@@ -122,7 +123,7 @@ class ChatAgent(BaseAgent):
             '''
             self.messages.append(HumanMessage(content=file_prompt))
             
-        # 判断是否是和变压器故障诊断相关
+        # 判断是否是需要参考文献的查询
         decide_if_reference_agent = DecideIfReferenceAgent()
         is_related = decide_if_reference_agent.output(query)
 
