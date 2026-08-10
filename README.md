@@ -239,6 +239,20 @@ SSE 数据类型：
 
 这些文件是运行数据。部署时应保证目录可写，并根据隐私、容量和保留周期制定清理策略。当前实现没有数据库事务或并发写保护，不建议多个进程共享同一 `history/` 目录。
 
+## 扫描版 PDF OCR 与结构化
+
+`scripts/pdf_to_structured_json.py` 可将无文本层的中文扫描 PDF 转成结构化 JSON。脚本使用 Poppler 渲染页面，并调用 Windows 内置的简体中文 OCR；输出同时包含逐页原始 OCR（NDJSON，保留行/词坐标）和按章、分类、案例、小节组织的 JSON。
+
+```powershell
+python scripts\pdf_to_structured_json.py `
+  "static\references\变压器类设备典型故障案例汇编 _ 2006-2010年.pdf" `
+  "ocr_output\变压器类设备典型故障案例汇编_2006-2010_结构化.json" `
+  --raw-output "ocr_output\变压器类设备典型故障案例汇编_2006-2010_OCR.ndjson" `
+  --dpi 180
+```
+
+要求系统可执行 `pdfinfo`、`pdftoppm` 和 Windows PowerShell，并已安装 Windows 简体中文 OCR 语言包。若只需重新调整层级规则，可加入 `--reuse-raw`，直接复用已有 NDJSON，无需再次识别 204 页图片。
+
 ## 已知限制与维护注意事项
 
 - 根因诊断依赖模型严格按标签、JSON或节点名输出；模型格式漂移可能导致解析失败或图节点查找异常。
